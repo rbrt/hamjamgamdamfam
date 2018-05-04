@@ -463,11 +463,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 223107828126627620, guid: 9e2b9b11000444029ab31a1502fc47a3,
         type: 2}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 223107828126627620, guid: 9e2b9b11000444029ab31a1502fc47a3,
-        type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1612096609}

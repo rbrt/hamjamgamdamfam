@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1464b1204d88b464fa0efcbb3c61987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticleImage: {fileID: 0}
+  uiCanvas: {fileID: 223107828126627620}
+  reticleImage: {fileID: 114986333711647154}
 --- !u!114 &114428575183195440
 MonoBehaviour:
   m_ObjectHideFlags: 1
