@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	ControllerInterface controller;
 	public static string ControllerTypeKey = "ControllerType";
 
+	// Bounds for mouse and plane movement
 	Vector2 screenYRange = new Vector2(-.7f, 3.5f);
 	Vector2 screenXRange = new Vector2(-3.46f, 4.5f);
 
@@ -21,6 +22,12 @@ public class PlayerController : MonoBehaviour
 	Vector2 playerYRange = new Vector2(-0.75f, 2.75f);
 
 	bool primaryFiring = false;
+
+	Vector3 targetShipPosition;
+	float cursorFollowSpeed = 0f;
+	float maxCursorFollowSpeed = 10f;
+	float cursorFollowSpeedRampUp = .35f;
+	float cursorFollowSpeedRampDown = .4f;
 
 	public ControllerInterface.ControllerTypes InterfaceType
 	{
@@ -52,6 +59,8 @@ public class PlayerController : MonoBehaviour
 		{
 
 		}
+
+		targetShipPosition = playerMesh.transform.position;
 	}
 
 	void Update () 
@@ -76,7 +85,29 @@ public class PlayerController : MonoBehaviour
 		reticleWorldPosition.x = Mathf.Lerp(playerXRange.x, playerXRange.y, xProgress);
 		reticleWorldPosition.y = Mathf.Lerp(playerYRange.x, playerYRange.y, yProgress);
 
-		playerMesh.transform.position = reticleWorldPosition;
+		targetShipPosition = reticleWorldPosition;
+
+		if (Vector3.Distance(playerMesh.transform.position, targetShipPosition) > .5f)
+		{
+			cursorFollowSpeed += cursorFollowSpeedRampUp;
+		}
+		else if (Vector3.Distance(playerMesh.transform.position, targetShipPosition) > .1f)
+		{
+			cursorFollowSpeed += cursorFollowSpeedRampUp * .1f;
+		}
+		else
+		{
+			cursorFollowSpeed -= cursorFollowSpeedRampDown;
+		}
+
+		cursorFollowSpeed = Mathf.Clamp(cursorFollowSpeed, 0, maxCursorFollowSpeed);
+
+		playerMesh.transform.position = Vector3.MoveTowards
+		(
+			playerMesh.transform.position,
+			targetShipPosition,
+			cursorFollowSpeed * Time.deltaTime
+		);
 	}
 
 	void HandleFiring ()
