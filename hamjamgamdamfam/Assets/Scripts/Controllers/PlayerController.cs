@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 	[SerializeField] protected ControllerInterface.ControllerTypes interfaceType;
 	[SerializeField] protected GameObject playerMesh;
+	[SerializeField] protected GameObject playerShipMesh;
 	[SerializeField] protected Weapon activeWeapon;
 	[SerializeField] protected Camera viewCamera;
 

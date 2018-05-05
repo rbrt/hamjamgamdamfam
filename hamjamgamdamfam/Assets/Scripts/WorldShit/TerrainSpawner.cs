@@ -44,7 +44,7 @@ public class TerrainSpawner : MonoBehaviour {
 			randomVector.z = rand2D.y;
 			Vector3 position = randomVector;
 
-			Quaternion rotation = Random.rotation;
+			Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
 
 			int prefabIndex = Random.Range(0, TerrainTypes.Count);
 
