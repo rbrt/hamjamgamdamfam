@@ -7,6 +7,7 @@ Properties {
 	_DisplacementStrength ("Displacement Strength", Range(0,1)) = 0
 	_Frequency ("Frequency", Float) = 0
 	_Amplitude ("Amplitude", Float) = 0
+	_ShipPosition ("ShipPosition", Vector) = (0,0,0,0)
 }
 
 SubShader {
@@ -41,6 +42,7 @@ SubShader {
 			float _Frequency;
 			float _DisplacementStrength;
 			float _Lambda;
+			half4 _ShipPosition;
 
 			fixed2 gerstnerSumXZ(fixed2 x0, fixed2 waveVector, float freq, float amplitude, float phase, float doIt){
 				float lambda = _Lambda;
@@ -100,9 +102,13 @@ SubShader {
 			v2f vert(appdata_base IN){
 				v2f OUT;
 				float4 vertex = IN.vertex;
-				vertex.xyz = gerstnerSumGenerator(vertex.xz, 0);
+				//vertex.xyz = gerstnerSumGenerator(vertex.xz, 0);
 
-				vertex.y -= _DisplacementStrength * 3;
+				half3 worldPos = mul(unity_ObjectToWorld, vertex);
+				if (distance(worldPos.xz, _ShipPosition.xz) < 100)
+				{
+					vertex.y -= _DisplacementStrength * 10;
+				}
 				
 				OUT.vertex = UnityObjectToClipPos(vertex);
 				OUT.normal = IN.normal;

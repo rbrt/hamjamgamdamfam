@@ -28,7 +28,7 @@ public class TestEnemyManager : MonoBehaviour
 		for (int i = 0; i < enemyGrouping.Length; i++)
 		{
 			EnemyTypes[0].Path = path;
-			Enemy enemy = manager.Create( EnemyTypes[0], Vector3.zero, Quaternion.identity) as BasicEnemy;
+			Enemy enemy = manager.Create(EnemyTypes[0], Vector3.zero, Quaternion.identity) as BasicEnemy;
 
 			yield return waitForSpawn;
 		}

@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 33189103761533382}
   - component: {fileID: 65018649884130314}
   - component: {fileID: 23524916252277926}
+  - component: {fileID: 114258810368990476}
   m_Layer: 0
   m_Name: Player Mesh
   m_TagString: Untagged
@@ -1906,6 +1907,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051691925134162}
   m_Enabled: 1
+--- !u!114 &114258810368990476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868962609298218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbab011ec0704aa193a64da652bdd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 0}
 --- !u!114 &114333926626964188
 MonoBehaviour:
   m_ObjectHideFlags: 1
