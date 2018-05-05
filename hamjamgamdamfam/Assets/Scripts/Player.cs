@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, ITakesDamage {
-	
+
+	public static Player Instance; 
+
 	[SerializeField] protected int Health;
 	
 	public List<GameObject> ShipBits;
 
 	public float damageTime;
+
+	void Awake()
+	{
+		Instance = this;
+	}
 	
 	void OnCollisionEnter( Collision col)
 	{

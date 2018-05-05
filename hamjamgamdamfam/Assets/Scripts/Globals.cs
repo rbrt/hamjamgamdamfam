@@ -5,6 +5,7 @@ using UnityEngine;
 public class Globals : MonoBehaviour {
 	
 	public float StaticSpeed = 10f;
+	public float BulletSpeed = 35;
 
 	public int EnviromentDamage = 20;
 	
@@ -16,6 +17,5 @@ public class Globals : MonoBehaviour {
 	{
 		Globals.Instance = this;
 	}
-
-
+	
 }

@@ -6,7 +6,11 @@ public class Enemy : Entitie, ITakesDamage {
 
 	[SerializeField] protected int health = 10;
 	[SerializeField] protected Vector3[] pathPoints;
+
+	public float rateOfFire;
 	public float power;
+
+	public GameObject bullet;
 
 	public override void Init( EntitieData data){ 
 	
@@ -18,8 +22,7 @@ public class Enemy : Entitie, ITakesDamage {
 			
 			Destroyed = false;
 			pathPoints = ed.Path;
-			meshFilter.mesh = ed.mesh;
-			meshRenderer.material = ed.material;
+			rateOfFire = ed.RateOfFire;
 		}
 	}
 
