@@ -12,8 +12,6 @@ public class ControllerInterface : MonoBehaviour
 		PS4Controller
 	}
 
-	public ControllerTypes ControllerType = ControllerTypes.None;
-
 	// Return mouse or joystick input
 	public virtual Vector2 GetViewportPosition()
 	{
