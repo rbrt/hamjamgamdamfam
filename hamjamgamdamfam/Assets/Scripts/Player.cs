@@ -12,9 +12,12 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 	public float damageTime;
 
+	float beginningHealth;
+
 	void Awake()
 	{
 		Instance = this;
+		beginningHealth = Health;
 	}
 	
 	void OnCollisionEnter( Collision col)
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour, ITakesDamage {
 	public void TakeDamage(int damage)
 	{
 		Health -= damage;
+		UIController.Instance.AdjustHealthForDamage(Health / beginningHealth);
 		if( Health > 0 )
 		{
 			StartCoroutine( TakeDamageCoroutine());

@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour
 	[SerializeField] protected Canvas uiCanvas;
 	[SerializeField] protected Image reticleImage;
 	[SerializeField] protected Camera worldCamera;
+	[SerializeField] protected Image healthFill;
 
 	RectTransform canvasRect;
 	RectTransform reticleRect;
@@ -69,5 +70,10 @@ public class UIController : MonoBehaviour
 	public Vector2 GetReticleViewportPosition()
 	{
 		return worldCamera.WorldToViewportPoint(reticleRect.position);
+	}
+
+	public void AdjustHealthForDamage(float percent)
+	{
+		healthFill.fillAmount = percent;
 	}
 }
