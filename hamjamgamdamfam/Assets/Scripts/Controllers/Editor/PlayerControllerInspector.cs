@@ -6,13 +6,13 @@ using UnityEditor;
 [CustomEditor(typeof(PlayerController))]
 public class PlayerControllerInspector : Editor 
 {
-	public static string ControllerTypeKey = "ControllerType";
+	
 
 	public override void OnInspectorGUI()
 	{
 		DrawDefaultInspector();
 		var controller = target as PlayerController;
-		var value = EditorPrefs.GetString(ControllerTypeKey);
+		var value = EditorPrefs.GetString(PlayerController.ControllerTypeKey);
 		
 		if (!string.IsNullOrEmpty(value))
 		{
@@ -21,6 +21,7 @@ public class PlayerControllerInspector : Editor
 			if (interfaceType != controller.InterfaceType)
 			{
 				controller.InterfaceType = interfaceType;
+				EditorPrefs.SetString(PlayerController.ControllerTypeKey, interfaceType.ToString());
 				EditorUtility.SetDirty(controller);
 			}
 		}

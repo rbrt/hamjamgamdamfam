@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] protected ControllerInterface.ControllerTypes interfaceType;
 	
 	ControllerInterface controller;
+	public static string ControllerTypeKey = "ControllerType";
 
 	public ControllerInterface.ControllerTypes InterfaceType
 	{
@@ -26,8 +27,21 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		#if UNITY_EDITOR
-
+		var value = EditorPrefs.GetString(ControllerTypeKey);
+		if (!string.IsNullOrEmpty(value))
+		{
+			interfaceType = (ControllerInterface.ControllerTypes)System.Enum.Parse(typeof(ControllerInterface.ControllerTypes), value);
+		}
 		#endif
+
+		if (interfaceType == ControllerInterface.ControllerTypes.MouseKeyboard)
+		{
+			controller = GetComponentInChildren<MouseKeyboardController>();
+		}
+		else if (interfaceType == ControllerInterface.ControllerTypes.PS4Controller)
+		{
+
+		}
 	}
 
 	void Update () 
