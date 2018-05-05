@@ -254,6 +254,7 @@ MonoBehaviour:
   uiCanvas: {fileID: 223107828126627620}
   reticleImage: {fileID: 114986333711647154}
   worldCamera: {fileID: 0}
+  healthFill: {fileID: 114642936896945292}
 --- !u!114 &114428575183195440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,8 +501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277.00168, y: 34.001385}
-  m_SizeDelta: {x: 550, y: 75}
+  m_AnchoredPosition: {x: 287, y: 31}
+  m_SizeDelta: {x: 550, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224361126434534966
 RectTransform:
@@ -518,8 +519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: 37}
-  m_SizeDelta: {x: 580, y: 90}
+  m_AnchoredPosition: {x: 295, y: 37}
+  m_SizeDelta: {x: 580, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224591000857825488
 RectTransform:
