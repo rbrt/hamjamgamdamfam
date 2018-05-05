@@ -45,7 +45,11 @@ public class UIController : MonoBehaviour
 	public void SetTargetReticlePosition(Vector2 mousePosition)
 	{
 		cursorPosition = mousePosition;
-		viewportPosition = new Vector2(mousePosition.x / Screen.width, mousePosition.y / Screen.height);
+
+		cursorPosition.x = Mathf.Clamp(cursorPosition.x, .1f * Screen.width, .9f * Screen.width);
+		cursorPosition.y = Mathf.Clamp(cursorPosition.y, .2f * Screen.height, .8f * Screen.height);
+
+		viewportPosition = new Vector2(cursorPosition.x / Screen.width, cursorPosition.y / Screen.height);
 		Vector2 screenPosition = new Vector2(
 			((viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
 			((viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f))
