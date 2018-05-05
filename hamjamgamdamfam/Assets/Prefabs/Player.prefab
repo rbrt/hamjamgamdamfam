@@ -2048,6 +2048,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 1694660811083962, guid: f4bd513a8c6c7499b80ce5dd2a518689,
     type: 2}
   laserOrigin: {fileID: 1136269904193860}
+  laserShot: {fileID: 8300000, guid: c1ff757fcac074646b8ec43cd8d7330e, type: 3}
 --- !u!124 &124815175266287796
 Behaviour:
   m_ObjectHideFlags: 1
