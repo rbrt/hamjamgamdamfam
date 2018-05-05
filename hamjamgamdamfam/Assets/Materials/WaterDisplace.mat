@@ -81,4 +81,4 @@ Material:
     m_Colors:
     - _Color: {r: 0.47843137, g: 0.8117647, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShipPosition: {r: 30.988865, g: 18.101332, b: 34.066517, a: 0}
+    - _ShipPosition: {r: 31.370548, g: 18.057772, b: 33.960163, a: 0}
