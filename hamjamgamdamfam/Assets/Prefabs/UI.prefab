@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 223107828126627620}
   reticleImage: {fileID: 114986333711647154}
+  worldCamera: {fileID: 0}
 --- !u!114 &114428575183195440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.04833284, g: 1, b: 0.066608965, a: 0.43892527}
+  m_Color: {r: 1, g: 0.9254902, b: 0.1254902, a: 0.38039216}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

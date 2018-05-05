@@ -23,6 +23,6 @@ public class DefaultLaser : Weapon
 		}
 
 		lastFireTime = Time.time;
-		var laser = Instantiate(laserPrefab, laserOrigin.transform.position, laserOrigin.transform.rotation);
+		Instantiate(laserPrefab, laserOrigin.transform.position, laserOrigin.transform.rotation);
 	}
 }
