@@ -594,5 +594,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fc5130072a542bc82fd62469c64789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnTime: 5
+  MaxTerrainCount: 200
   minDistance: 150
   range: 50
+  TerrainPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
+    type: 2}
+  clusterSize: 50
+  TerrainTypes:
+  - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
+  - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
