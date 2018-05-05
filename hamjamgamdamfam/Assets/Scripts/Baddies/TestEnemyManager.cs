@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestEnemyManager : MonoBehaviour 
 {
 
-	[SerializeField] protected GameObject[] enemyGrouping;
+	[SerializeField] protected Enemie[] enemyGrouping;
 	float enemySpawnInterval = .2f;
 
 	void Start()
@@ -13,11 +13,22 @@ public class TestEnemyManager : MonoBehaviour
 		StartCoroutine((SpawnEnemies()));
 	}
 
+	void Update()
+	{
+		for (int i = 0; i < enemyGrouping.Length; i++)
+		{
+			if (enemyGrouping[i].gameObject.activeInHierarchy)
+			{
+				enemyGrouping[i].ManualUpdate();
+			}
+		}
+	}
+
 	IEnumerator SpawnEnemies()
 	{
 		for (int i = 0; i < enemyGrouping.Length; i++)
 		{
-			enemyGrouping[i].SetActive(true);
+			enemyGrouping[i].gameObject.SetActive(true);
 			yield return new WaitForSeconds(enemySpawnInterval);
 		}
 	}

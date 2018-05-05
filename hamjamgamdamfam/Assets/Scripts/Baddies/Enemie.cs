@@ -12,4 +12,9 @@ public class Enemie : MonoBehaviour
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void ManualUpdate()
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
