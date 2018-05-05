@@ -6,11 +6,13 @@ using UnityEngine;
 public class TerrainManager : MonoBehaviour { 
 
 	public float spawnTime = 5f;
-	public int MaxTerrainCount = 200;
-	public float minDistance = 100;
+	public int MaxTerrainCount = 2000;
+	public float minDistance = 120;
 	public float range = 50;
 	public GameObject TerrainPrefab;
-	public int clusterSize = 50;
+	public int clusterSize = 70;
+
+	public float KILL_DISTANCE = -20f;
 
 	float lastSpawn = 0f;
 	int live = 0;
@@ -39,26 +41,25 @@ public class TerrainManager : MonoBehaviour {
 		{
 			StartCoroutine(perFrame());
 		}
-
-		UpdateTerrainPosition();
-
-	}	
-
-	void UpdateTerrainPosition()
-	{
-		for( int i = 0; i < TerrainSpool.Count; i++ )
+		
+		for ( int i = 0; i < MaxTerrainCount; i++ )
 		{
-			if( TerrainSpool[i].gameObject.activeSelf)
+			if ( TerrainSpool[i].gameObject.activeSelf)
 			{
-				TerrainSpool[i].transform.position = 
-					TerrainSpool[i].transform.position + ( Vector3.back * Globals.Instance.StaticSpeed * Time.deltaTime );
-				if ( transform.position.z < -25f)
-				{
+				// Should it get disabled.
+				if ( TerrainSpool[i].transform.position.z < KILL_DISTANCE) {
 					Free( TerrainSpool[i]);
+					continue;
 				}
+
+
+				TerrainSpool[i].ManualUpdate();
 			}
 		}
+
 	}
+
+
 
 	IEnumerator perFrame()
 	{
