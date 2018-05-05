@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] protected ControllerInterface.ControllerTypes interfaceType;
 	[SerializeField] protected GameObject playerMesh;
 	[SerializeField] protected Weapon activeWeapon;
+	[SerializeField] protected Camera viewCamera;
+
+	[SerializeField] protected Transform visualizationCube;
 	
 	ControllerInterface controller;
 	public static string ControllerTypeKey = "ControllerType";
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	bool primaryFiring = false;
 
 	Vector3 targetShipPosition;
+	Vector3 targetShipLookPosition;
 	float cursorFollowSpeed = 0f;
 	float maxCursorFollowSpeed = 10f;
 	float cursorFollowSpeedRampUp = .35f;
@@ -72,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
 	void MovePlayer()
 	{
+
+		// Handle Position
 		var reticleWorldPosition = UIController.Instance.GetWorldSpaceReticlePosition(playerMesh.transform.position.z);
 		reticleWorldPosition.z = playerMesh.transform.position.z;
 		
@@ -108,6 +114,15 @@ public class PlayerController : MonoBehaviour
 			targetShipPosition,
 			cursorFollowSpeed * Time.deltaTime
 		);
+
+		// Handle Rotation
+		var reticleViewportPoint = UIController.Instance.GetReticleViewportPosition();
+		targetShipLookPosition = viewCamera.ViewportToWorldPoint(new Vector3(reticleViewportPoint.x, reticleViewportPoint.y, 15));
+
+		var targetRotation = Quaternion.LookRotation(targetShipLookPosition - playerMesh.transform.position, Vector3.up);
+		playerMesh.transform.rotation = Quaternion.RotateTowards(playerMesh.transform.rotation, targetRotation, 150 * Time.deltaTime);
+
+		visualizationCube.position = targetShipLookPosition;
 	}
 
 	void HandleFiring ()

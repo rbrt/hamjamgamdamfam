@@ -61,4 +61,9 @@ public class UIController : MonoBehaviour
 			new Vector3(cursorPosition.x, cursorPosition.y, targetZ)
 		);
 	}
+
+	public Vector2 GetReticleViewportPosition()
+	{
+		return worldCamera.WorldToViewportPoint(reticleRect.position);
+	}
 }

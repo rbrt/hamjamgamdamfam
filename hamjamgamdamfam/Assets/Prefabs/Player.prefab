@@ -532,6 +532,7 @@ MonoBehaviour:
   interfaceType: 1
   playerMesh: {fileID: 1868962609298218}
   activeWeapon: {fileID: 114763449463977858}
+  viewCamera: {fileID: 20194335320042536}
 --- !u!114 &114763449463977858
 MonoBehaviour:
   m_ObjectHideFlags: 1
