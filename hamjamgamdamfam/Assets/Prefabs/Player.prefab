@@ -1936,7 +1936,7 @@ MonoBehaviour:
   screenYRange: {x: 0.25, y: 2.96}
   screenXRange: {x: -2.81, y: 4.49}
   playerXRange: {x: -5, y: 5}
-  playerYRange: {x: -1.5, y: 3.5}
+  playerYRange: {x: -1.5, y: 2.4}
 --- !u!114 &114763449463977858
 MonoBehaviour:
   m_ObjectHideFlags: 1
