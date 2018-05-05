@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour {
 	
-	public float speed;
 	public int power; 
 	public Vector3 direction;
 
 	void Update()
 	{
 		transform.position =
-			transform.position + ( direction * speed * Time.deltaTime);
+			transform.position + ( direction * Globals.Instance.BulletSpeed * Time.deltaTime);
 
 		if( transform.position.z < -25) 
 		{

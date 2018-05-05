@@ -113,5 +113,7 @@ MonoBehaviour:
   Destroyed: 0
   health: 10
   pathPoints: []
+  rateOfFire: 0
   power: 0
+  bullet: {fileID: 1018947217188642, guid: e21ce0a9b644e49699619622c6e667fa, type: 2}
   moveSpeed: 0.4

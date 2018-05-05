@@ -23,6 +23,7 @@ public class TerrainSpawner : MonoBehaviour {
 	{
 		StartCoroutine( spawnClusterSize( clusterSize));
 	}
+	
 	void Update()
 	{
 		if ( Time.time - lastSpawn > spawnTime)
@@ -43,8 +44,10 @@ public class TerrainSpawner : MonoBehaviour {
 			randomVector.x = rand2D.x;
 			randomVector.z = rand2D.y;
 			Vector3 position = randomVector;
+			position.x *= 3f;
 
 			Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
+
 
 			int prefabIndex = Random.Range(0, TerrainTypes.Count);
 
