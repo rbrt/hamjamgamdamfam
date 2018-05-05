@@ -39,7 +39,7 @@ public class TerrainInstance :  MonoBehaviour, ITakesDamage {
 	{
 		if ( Destructable )
 		{
-			Debug.Log( " pew");
+			
 		}
 		return 0;
 	}
