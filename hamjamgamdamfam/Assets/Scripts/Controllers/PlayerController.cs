@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
 	public static string ControllerTypeKey = "ControllerType";
 
 	// Bounds for mouse and plane movement
-	Vector2 screenYRange = new Vector2(-.7f, 3.5f);
-	Vector2 screenXRange = new Vector2(-3.46f, 4.5f);
+	public Vector2 screenYRange = new Vector2(-.7f, 3.5f);
+	public Vector2 screenXRange = new Vector2(-3.46f, 4.5f);
 
-	Vector2 playerXRange = new Vector2(-3.05f, 3.5f);
-	Vector2 playerYRange = new Vector2(-0.75f, 2.75f);
+	public Vector2 playerXRange = new Vector2(-3.05f, 3.5f);
+	public Vector2 playerYRange = new Vector2(-0.75f, 2.75f);
 
 	bool primaryFiring = false;
 
