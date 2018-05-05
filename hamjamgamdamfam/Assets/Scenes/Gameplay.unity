@@ -754,6 +754,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1074110072}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1200078280 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23010584784882860, guid: 384d93bab93af47cd9b01e9896cd5d14,
+    type: 2}
+  m_PrefabInternal: {fileID: 585100475}
 --- !u!4 &1208341101 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4335372646761684, guid: b44a7629fa4434a279804c81d526acfa,
@@ -798,6 +803,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114258810368990476, guid: b44a7629fa4434a279804c81d526acfa,
+        type: 2}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 1200078280}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
   m_IsPrefabParent: 0
@@ -1110,6 +1120,36 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1612096609}
+    - target: {fileID: 224240852612709344, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 224361126434534966, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 224240852612709344, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 287
+      objectReference: {fileID: 0}
+    - target: {fileID: 224361126434534966, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 295
+      objectReference: {fileID: 0}
+    - target: {fileID: 224361126434534966, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 224240852612709344, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e2b9b11000444029ab31a1502fc47a3, type: 2}
   m_IsPrefabParent: 0
