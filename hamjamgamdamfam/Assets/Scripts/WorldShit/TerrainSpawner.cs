@@ -19,6 +19,10 @@ public class TerrainSpawner : MonoBehaviour {
 	
 	public List<TerrainData> TerrainTypes;
 
+	void Start()
+	{
+		StartCoroutine( spawnClusterSize( clusterSize));
+	}
 	void Update()
 	{
 		if ( Time.time - lastSpawn > spawnTime)

@@ -45,7 +45,7 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 			Destroyed = true;
 		}
 	}
-
+	
 	public void TakeDamage( int Damage)
 	{
 		if ( Destructable )

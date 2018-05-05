@@ -5,9 +5,8 @@ using UnityEngine;
 public class Globals : MonoBehaviour {
 	
 	public float StaticSpeed = 10f;
-	public float SpeedModifier = 0f;
 
-	public float CurrentSpeed { get { return StaticSpeed + SpeedModifier; }}  
+	public int EnviromentDamage = 20;
 	
 	public static Globals Instance; 
 	

@@ -37,8 +37,10 @@ public class BasicEnemy : Enemy
 	public override void TakeDamage(int damage)
 	{
 		health -= damage;
-		if( health < 0 ) 
+		if( health < 0 )
+		{
 			Destroyed = true;
+		}
 	}
 	
 }
