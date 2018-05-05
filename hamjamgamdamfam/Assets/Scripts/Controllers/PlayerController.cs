@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 	[SerializeField] protected ControllerInterface.ControllerTypes interfaceType;
 	[SerializeField] protected GameObject playerMesh;
+	[SerializeField] protected Weapon activeWeapon;
 	
 	ControllerInterface controller;
 	public static string ControllerTypeKey = "ControllerType";
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
 	void FirePrimaryWeapon()
 	{
-
+		activeWeapon.Fire();
 	}
 
 	void HandleReticle()

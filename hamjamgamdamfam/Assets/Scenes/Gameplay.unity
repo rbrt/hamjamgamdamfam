@@ -417,26 +417,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
-        type: 2}
-      propertyPath: screenXRange.y
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
-        type: 2}
-      propertyPath: screenXRange.x
-      value: -3.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
-        type: 2}
-      propertyPath: playerXRange.x
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
-        type: 2}
-      propertyPath: playerXRange.y
-      value: 3.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
   m_IsPrefabParent: 0

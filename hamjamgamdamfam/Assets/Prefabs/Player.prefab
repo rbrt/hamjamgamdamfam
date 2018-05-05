@@ -47,6 +47,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1293203284349864
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4298150840220790}
+  - component: {fileID: 114763449463977858}
+  m_Layer: 0
+  m_Name: Default Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1304366315012968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4297858139033876}
+  m_Layer: 0
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1556749581079588
 GameObject:
   m_ObjectHideFlags: 1
@@ -131,6 +162,33 @@ Transform:
   m_Father: {fileID: 4784438706762886}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4297858139033876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304366315012968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4298150840220790}
+  m_Father: {fileID: 4335372646761684}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4298150840220790
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293203284349864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4297858139033876}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4335372646761684
 Transform:
   m_ObjectHideFlags: 1
@@ -143,6 +201,7 @@ Transform:
   m_Children:
   - {fileID: 4996607626804434}
   - {fileID: 4784438706762886}
+  - {fileID: 4297858139033876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -472,10 +531,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interfaceType: 1
   playerMesh: {fileID: 1868962609298218}
-  screenYRange: {x: -0.7, y: 3.5}
-  screenXRange: {x: -3.66, y: 50}
-  playerXRange: {x: -2.75, y: 2.75}
-  playerYRange: {x: -0.75, y: 2.75}
+  activeWeapon: {fileID: 114763449463977858}
+--- !u!114 &114763449463977858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293203284349864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc2d06faf4c840fda5930d1175b2703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 1694660811083962, guid: f4bd513a8c6c7499b80ce5dd2a518689,
+    type: 2}
+  laserOrigin: {fileID: 1868962609298218}
 --- !u!124 &124815175266287796
 Behaviour:
   m_ObjectHideFlags: 1
