@@ -28,11 +28,12 @@ public class DefaultLaserProjectile : MonoBehaviour
 
 	void OnCollisionEnter( Collision col)
 	{
-		Debug.Log( "Braap");
 		ITakesDamage td = col.gameObject.GetComponent<ITakesDamage>();
 		if ( td != null)
 		{
 			td.TakeDamage( power);
 		}
+
+		Destroy(this.gameObject);
 	}
 }
