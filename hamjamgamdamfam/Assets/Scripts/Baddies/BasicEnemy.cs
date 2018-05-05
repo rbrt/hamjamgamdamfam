@@ -16,7 +16,9 @@ public class BasicEnemy : Enemy
 	{
 		transform.position = pathPoints[currentPathNode];
 		currentPathNode++;
+		lastShot = Random.Range( 0f, rateOfFire);
 	}
+
 
 	public override void ManualUpdate()
 	{
@@ -48,8 +50,12 @@ public class BasicEnemy : Enemy
 	void ShootBullet()
 	{ 
 
-		Vector3 dir = ( Player.Instance.transform.position - this.transform.position).normalized;
-		if( dir.z < 10 )
+		Vector3 dir = ( Player.Instance.transform.position - this.transform.position);
+		if ( dir.magnitude < 10f ) {
+			return;
+		}
+		dir.Normalize();
+		if( dir.z > 0 )
 		{	
 			return;
 		}
@@ -58,8 +64,6 @@ public class BasicEnemy : Enemy
 		go.transform.position = this.transform.position;
 		var instBullet = go.GetComponent<EnemyBullet>();
 		instBullet.direction = dir; 
-		instBullet.speed = bulletSpeed;
-
 	}
 
 	public override void TakeDamage(int damage)
