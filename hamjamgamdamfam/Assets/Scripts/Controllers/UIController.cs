@@ -23,7 +23,8 @@ public class UIController : MonoBehaviour
 	RectTransform canvasRect;
 	RectTransform reticleRect;
 	Vector2 targetReticlePosition = Vector2.zero;
-	Vector2 reticleVelocity = Vector2.zero;
+	Vector2 viewportPosition = Vector2.zero;
+	Vector2 cursorPosition = Vector2.zero;
 
 	void Awake()
 	{
@@ -43,12 +44,21 @@ public class UIController : MonoBehaviour
 
 	public void SetTargetReticlePosition(Vector2 mousePosition)
 	{
-		Vector2 viewportPosition = new Vector2(mousePosition.x / Screen.width, mousePosition.y / Screen.height);
+		cursorPosition = mousePosition;
+		viewportPosition = new Vector2(mousePosition.x / Screen.width, mousePosition.y / Screen.height);
 		Vector2 screenPosition = new Vector2(
 			((viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
 			((viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f))
 		);
 
 		targetReticlePosition = screenPosition;
+	}
+
+	public Vector3 GetWorldSpaceReticlePosition(float targetZ)
+	{
+		return worldCamera.ScreenToWorldPoint
+		(
+			new Vector3(cursorPosition.x, cursorPosition.y, targetZ)
+		);
 	}
 }

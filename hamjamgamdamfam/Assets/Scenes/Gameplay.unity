@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e213a4eacf4cf4cd7b3752fcbb25ad39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StaticSpeed: 10
   DebugPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
     type: 2}
 --- !u!4 &417653573
@@ -182,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666837822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 350.26163, y: 47.410767, z: 1915.3726}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1208341101}
@@ -386,15 +387,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4335372646761684, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -350.26163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4335372646761684, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -45.410767
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4335372646761684, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1920.3726
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4335372646761684, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -416,11 +417,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20194335320042536, guid: b44a7629fa4434a279804c81d526acfa,
+    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
         type: 2}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 8aaf22c8bf8b445159d0c950392f4e9a, type: 2}
+      propertyPath: screenXRange.y
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
+        type: 2}
+      propertyPath: screenXRange.x
+      value: -3.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
+        type: 2}
+      propertyPath: playerXRange.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114655833120373166, guid: b44a7629fa4434a279804c81d526acfa,
+        type: 2}
+      propertyPath: playerXRange.y
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b44a7629fa4434a279804c81d526acfa, type: 2}
   m_IsPrefabParent: 0
@@ -508,6 +524,11 @@ Prefab:
     - target: {fileID: 223107828126627620, guid: 9e2b9b11000444029ab31a1502fc47a3,
         type: 2}
       propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1612096609}
+    - target: {fileID: 114369196824702576, guid: 9e2b9b11000444029ab31a1502fc47a3,
+        type: 2}
+      propertyPath: worldCamera
       value: 
       objectReference: {fileID: 1612096609}
     m_RemovedComponents: []

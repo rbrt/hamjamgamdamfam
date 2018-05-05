@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696505730470378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -350.26163, y: -45.410767, z: -1920.3726}
+  m_LocalPosition: {x: 0, y: 2, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4996607626804434}
@@ -471,6 +471,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interfaceType: 1
+  playerMesh: {fileID: 1868962609298218}
+  screenYRange: {x: -0.7, y: 3.5}
+  screenXRange: {x: -3.66, y: 50}
+  playerXRange: {x: -2.75, y: 2.75}
+  playerYRange: {x: -0.75, y: 2.75}
 --- !u!124 &124815175266287796
 Behaviour:
   m_ObjectHideFlags: 1
