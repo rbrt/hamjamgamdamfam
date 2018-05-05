@@ -32,8 +32,9 @@ public class DefaultLaserProjectile : MonoBehaviour
 		if ( td != null)
 		{
 			td.TakeDamage( power);
+
+			Destroy(this.gameObject);
 		}
 
-		Destroy(this.gameObject);
 	}
 }

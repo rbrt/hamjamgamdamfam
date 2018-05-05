@@ -2,19 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainInstance :  MonoBehaviour, ITakesDamage {
-	
-	public Renderer meshRenderer;
-	public MeshFilter meshFilter;
+public class TerrainInstance :  Entitie, ITakesDamage {
 	
 	public bool Destructable;
-	public bool Destroyed;
 
-	public void Init( TerrainData data){ 
-		Destroyed = false;
-		meshFilter.mesh = data.mesh;
-		meshRenderer.material = data.material;
-		Destructable = data.Destructable;
+	public override void Init( EntitieData data){ 
+		base.Init(data);
+		if( data is TerrainData ) 
+		{
+			TerrainData td = data as TerrainData;
+			Destroyed = false;
+
+			Destructable = td.Destructable;
+			transform.localScale = td.Scale;
+		}
+		else 
+		{
+			Debug.Log( "ERROR - Mismatch");
+		}
 	}
 
 	public float Speed { 
@@ -23,8 +28,9 @@ public class TerrainInstance :  MonoBehaviour, ITakesDamage {
 		}
 	}
 
-	public void ManualUpdate()
+	public override void ManualUpdate()
 	{
+		base.ManualUpdate();
 		UpdatePosition();
 	}
 	
@@ -33,13 +39,18 @@ public class TerrainInstance :  MonoBehaviour, ITakesDamage {
 		// Movement
 		transform.position = 
 			transform.position + ( Vector3.back * Speed * Time.deltaTime );
+		
+		if ( transform.position.z < -10)
+		{	
+			Destroyed = true;
+		}
 	}
 
 	public float TakeDamage( float Damage)
 	{
 		if ( Destructable )
 		{
-			Debug.Log( " pew");
+			Destroyed = true;
 		}
 		return 0;
 	}
