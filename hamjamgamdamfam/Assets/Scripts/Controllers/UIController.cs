@@ -38,7 +38,6 @@ public class UIController : MonoBehaviour
 
 	void Update () 
 	{
-		GetTargetReticlePosition();
 		reticleRect.anchoredPosition = Vector2.MoveTowards(reticleRect.anchoredPosition, targetReticlePosition, 50f);
 	}
 
