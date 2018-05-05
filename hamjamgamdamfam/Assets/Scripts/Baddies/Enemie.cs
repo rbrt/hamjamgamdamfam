@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemie : MonoBehaviour {
+public class Enemie : MonoBehaviour 
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	[SerializeField] protected int health = 10;
+
+	public virtual void TakeDamage()
+	{
+		throw new System.NotImplementedException();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
