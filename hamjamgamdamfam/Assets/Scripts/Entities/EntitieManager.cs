@@ -51,7 +51,7 @@ public class EntitieManager : MonoBehaviour {
 	}
 
 
-	public void Create( EntitieData outline, Vector3 position, Quaternion rotation)
+	public Entitie Create( EntitieData outline, Vector3 position, Quaternion rotation)
 	{
 
 		// todo check collisions
@@ -60,17 +60,16 @@ public class EntitieManager : MonoBehaviour {
 		{
 			if ( !EntitieSpool[i].gameObject.activeSelf)
 			{
-
 				EntitieSpool[i].Init( outline);
-
 				EntitieSpool[i].gameObject.SetActive( true);
 				EntitieSpool[i].transform.position = position;
 				EntitieSpool[i].transform.rotation = rotation;
 				
 				live++;
-				return;
+				return EntitieSpool[i];
 			}
 		}
+		return null;
 	}
 	
 	void Free( Entitie entitie)

@@ -2,47 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Entitie, ITakesDamage {
 
-	public Renderer meshRenderer;
-	public MeshFilter meshFilter;
-
-	public float health;
+	[SerializeField] protected int health = 10;
+	[SerializeField] protected Vector3[] pathPoints;
 	public float power;
+
+	public override void Init( EntitieData data){ 
 	
-	public bool Destroyed;
+		base.Init( data);
 
-	public void Init( TerrainData data){ 
-		Destroyed = false;
-		meshFilter.mesh = data.mesh;
-		meshRenderer.material = data.material;
-	}
-
-	public float Speed { 
-		get { 
-			return Globals.Instance.StaticSpeed;
+		if( data is EnemyData ) 		
+		{
+			EnemyData ed = data as EnemyData;
+			
+			Destroyed = false;
+			pathPoints = ed.Path;
+			meshFilter.mesh = ed.mesh;
+			meshRenderer.material = ed.material;
 		}
 	}
 
-	public void ManualUpdate()
+	public override void ManualUpdate()
 	{
-		UpdatePosition();
-	}
-	
-	void UpdatePosition()
-	{
-		// Movement
-		transform.position = 
-			transform.position + ( Vector3.back * Speed * Time.deltaTime );
+		throw new System.NotImplementedException();
 	}
 
-	public float TakeDamage( float Damage)
+	public void SetPath(Vector3[] path)
 	{
-		health -= Damage;
-		if ( health < 0 )
-		{	
-			Destroyed = true;
-		}
-		return Damage;
+		this.pathPoints = path;
+	}
+
+	public virtual void TakeDamage( int Damage)
+	{
+		throw new System.NotImplementedException();
 	}
 }
+

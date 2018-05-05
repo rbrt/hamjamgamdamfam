@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemy : Enemie 
+public class BasicEnemy : Enemy 
 {
 
 	[SerializeField] protected float moveSpeed = .4f;
@@ -25,7 +25,8 @@ public class BasicEnemy : Enemie
 
 		if (Vector3.Distance(transform.position, pathPoints[currentPathNode]) > .1f)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, pathPoints[currentPathNode], moveSpeed * Globals.Instance.StaticSpeed * Time.deltaTime);
+			transform.position =
+			   Vector3.MoveTowards(transform.position, pathPoints[currentPathNode], moveSpeed * Globals.Instance.StaticSpeed * Time.deltaTime);
 		}
 		else
 		{
@@ -35,7 +36,9 @@ public class BasicEnemy : Enemie
 
 	public override void TakeDamage(int damage)
 	{
-
+		health -= damage;
+		if( health < 0 ) 
+			Destroyed = true;
 	}
 	
 }

@@ -12,5 +12,7 @@ public class EnemyData : EntitieData {
 
 	public Vector3 Scale = Vector3.one;
 
+	public Vector3[] Path;
+
 }
 

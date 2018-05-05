@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf30a608d8b14dd89e668c263e23979, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 0}
   RateOfFire: 3
   Health: 1

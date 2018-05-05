@@ -46,12 +46,11 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 		}
 	}
 
-	public float TakeDamage( float Damage)
+	public void TakeDamage( int Damage)
 	{
 		if ( Destructable )
 		{
 			Destroyed = true;
 		}
-		return 0;
 	}
 }

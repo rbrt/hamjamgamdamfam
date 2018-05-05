@@ -5,23 +5,21 @@ using UnityEngine;
 public class TestEnemyManager : MonoBehaviour 
 {
 
-	[SerializeField] protected Enemie[] enemyGrouping;
+	[SerializeField] protected Enemy[] enemyGrouping;
+
+	[SerializeField] protected List<EnemyData> EnemyTypes;
+
+
+	WaitForSeconds waitForSpawn;	
+
+	[SerializeField] protected EntitieManager manager;
 	float enemySpawnInterval = 1f;
 
 	void Start()
 	{
-		StartCoroutine((SpawnEnemies()));
-	}
+		waitForSpawn = new WaitForSeconds(enemySpawnInterval);
 
-	void Update()
-	{
-		for (int i = 0; i < enemyGrouping.Length; i++)
-		{
-			if (enemyGrouping[i] != null && enemyGrouping[i].gameObject.activeInHierarchy)
-			{
-				enemyGrouping[i].ManualUpdate();
-			}
-		}
+		StartCoroutine((SpawnEnemies()));
 	}
 
 	IEnumerator SpawnEnemies()
@@ -29,9 +27,10 @@ public class TestEnemyManager : MonoBehaviour
 		var path = GeneratePath();
 		for (int i = 0; i < enemyGrouping.Length; i++)
 		{
-			enemyGrouping[i].SetPath(path);
-			enemyGrouping[i].gameObject.SetActive(true);
-			yield return new WaitForSeconds(enemySpawnInterval);
+			EnemyTypes[0].Path = path;
+			Enemy enemy = manager.Create( EnemyTypes[0], Vector3.zero, Quaternion.identity) as BasicEnemy;
+
+			yield return waitForSpawn;
 		}
 	}
 	
