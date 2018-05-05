@@ -7,6 +7,8 @@ public class DefaultLaser : Weapon
 	[SerializeField] protected GameObject laserPrefab;
 	[SerializeField] protected GameObject laserOrigin;
 
+	[SerializeField] protected AudioClip laserShot;
+
 	float fireRate = .3f;
 	float lastFireTime = 0;
 
@@ -22,6 +24,7 @@ public class DefaultLaser : Weapon
 			return;
 		}
 
+		AudioSource.PlayClipAtPoint(laserShot, transform.position);
 		lastFireTime = Time.time;
 		var laser = Instantiate(laserPrefab, laserOrigin.transform.position, laserOrigin.transform.rotation);
 	}

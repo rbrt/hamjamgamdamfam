@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] protected Camera viewCamera;
 
 	[SerializeField] protected Transform visualizationCube;
-	
+
 	ControllerInterface controller;
 	public static string ControllerTypeKey = "ControllerType";
 

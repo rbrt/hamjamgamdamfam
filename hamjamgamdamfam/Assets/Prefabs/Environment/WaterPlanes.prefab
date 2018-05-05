@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingFactor: 5
-  length: 850
+  length: 900
   width: 1200
   resX: 100
   resZ: 100
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingFactor: 5
-  length: 850
+  length: 900
   width: 1200
   resX: 100
   resZ: 100
