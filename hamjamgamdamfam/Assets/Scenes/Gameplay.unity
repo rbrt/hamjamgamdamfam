@@ -384,6 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764331480}
   - component: {fileID: 764331481}
+  - component: {fileID: 764331482}
   m_Layer: 0
   m_Name: Test Enemy Group
   m_TagString: Untagged
@@ -430,6 +431,24 @@ MonoBehaviour:
   - {fileID: 1312365421}
   - {fileID: 2051444477}
   - {fileID: 183060619}
+  EnemyTypes:
+  - {fileID: 11400000, guid: d032001dc2a6a425f94a56a18bda819d, type: 2}
+  manager: {fileID: 764331482}
+--- !u!114 &764331482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764331479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8ea6e664a8402298e8c1c92d5f4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntitiePrefab: {fileID: 1399270684559352, guid: ab4ca44f655de4ed3afb557e3867fa92,
+    type: 2}
+  MaxEntitieCount: 2000
+  live: 0
 --- !u!1 &861632538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2033322306}
   - component: {fileID: 2033322307}
+  - component: {fileID: 2033322308}
   m_Layer: 0
   m_Name: TerrainSpawner
   m_TagString: Untagged
@@ -1385,17 +1405,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 5
-  MaxTerrainCount: 2000
   minDistance: 150
   range: 50
   TerrainPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
     type: 2}
   clusterSize: 70
-  KILL_DISTANCE: -20
-  live: 0
+  manager: {fileID: 2033322308}
   TerrainTypes:
   - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
   - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
+--- !u!114 &2033322308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033322305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8ea6e664a8402298e8c1c92d5f4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntitiePrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
+    type: 2}
+  MaxEntitieCount: 2000
+  live: 0
 --- !u!114 &2051444477 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114984581962707366, guid: 755a1172ae4924bd0bcfe0430b42d56a,

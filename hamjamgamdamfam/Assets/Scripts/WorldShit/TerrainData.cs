@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu( fileName="TerrainDefault", menuName="Simon/Create Terrain SO", order=1)]
-public class TerrainData : ScriptableObject {
-
-	public Mesh mesh;
-	public Material material;
+[CreateAssetMenu( fileName="TerrainDefault", menuName="Create Terrain SO", order=100)]
+public class TerrainData : EntitieData {
 
 	public bool Destructable;
+
+	public Vector3 Scale = Vector3.one;
 
 }
