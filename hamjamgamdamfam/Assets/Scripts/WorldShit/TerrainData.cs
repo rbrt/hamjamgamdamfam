@@ -8,4 +8,6 @@ public class TerrainData : ScriptableObject {
 	public Mesh mesh;
 	public Material material;
 
+	public bool Destructable;
+
 }

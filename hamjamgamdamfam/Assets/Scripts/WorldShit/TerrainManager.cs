@@ -15,15 +15,21 @@ public class TerrainManager : MonoBehaviour {
 	public float KILL_DISTANCE = -20f;
 
 	float lastSpawn = 0f;
-	int live = 0;
+	
+	public int live = 0;
 
 	public List<TerrainData> TerrainTypes;
 
 	private List<TerrainInstance> TerrainSpool;
 
+	Vector3 randomVector = Vector3.zero;
+
 	void Awake()
 	{
+
+		// Create the game objects that will host terrain info.
 		TerrainSpool = new List<TerrainInstance>();
+
 		for( int i = 0; i < MaxTerrainCount; i++)
 		{
 			var go = Instantiate( TerrainPrefab);
@@ -32,6 +38,8 @@ public class TerrainManager : MonoBehaviour {
 			go.name = "obj:"+ i;
 			TerrainSpool.Add( go.GetComponent<TerrainInstance>());
 		}
+
+		//also all possible terrain should make its way into memory somehow, i'm not clear on this.
 	}
 
 
@@ -39,7 +47,7 @@ public class TerrainManager : MonoBehaviour {
 	{
 		if ( Time.time - lastSpawn > spawnTime)
 		{
-			StartCoroutine(perFrame());
+			StartCoroutine(spawnClusterSize(clusterSize));
 		}
 		
 		for ( int i = 0; i < MaxTerrainCount; i++ )
@@ -51,8 +59,12 @@ public class TerrainManager : MonoBehaviour {
 					Free( TerrainSpool[i]);
 					continue;
 				}
+				if ( TerrainSpool[i].Destroyed ){
+					Free( TerrainSpool[i]);
+					continue;
+				}
 
-
+				//Manual Update
 				TerrainSpool[i].ManualUpdate();
 			}
 		}
@@ -60,20 +72,18 @@ public class TerrainManager : MonoBehaviour {
 	}
 
 
-
-	IEnumerator perFrame()
+	IEnumerator spawnClusterSize( int size)
 	{
 
-		yield return null;
-
-		for( int i = 0; i < clusterSize; i++)
+		for( int i = 0; i < size; i++)
 		{ 
 			Vector2 rand2D = Random.insideUnitCircle;
 
 			rand2D *= range;
 			rand2D += rand2D + ( minDistance * Vector2.up);
-
-			Vector3 position = new Vector3( rand2D.x, 0f, rand2D.y);
+			randomVector.x = rand2D.x;
+			randomVector.z = rand2D.y;
+			Vector3 position = randomVector;
 
 			Quaternion rotation = Random.rotation;
 
@@ -90,17 +100,20 @@ public class TerrainManager : MonoBehaviour {
 
 	void Create( TerrainData outline, Vector3 position, Quaternion rotation)
 	{
+
+		// todo check collisions
+		
 		for( int i = 0; i < MaxTerrainCount; i++ )
 		{
 			if ( !TerrainSpool[i].gameObject.activeSelf)
 			{
-				TerrainSpool[i].meshFilter.mesh = outline.mesh;
-				TerrainSpool[i].meshRenderer.material = outline.material;
+
+				TerrainSpool[i].Init( outline);
 
 				TerrainSpool[i].gameObject.SetActive( true);
 				TerrainSpool[i].transform.position = position;
 				TerrainSpool[i].transform.rotation = rotation;
-
+				
 				live++;
 				return;
 			}

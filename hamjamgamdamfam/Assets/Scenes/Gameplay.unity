@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -598,7 +598,11 @@ MonoBehaviour:
   MaxTerrainCount: 2000
   minDistance: 150
   range: 50
-  TerrainPrefab: {fileID: 0}
+  TerrainPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
+    type: 2}
   clusterSize: 70
   KILL_DISTANCE: -20
-  TerrainTypes: []
+  live: 0
+  TerrainTypes:
+  - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
+  - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}

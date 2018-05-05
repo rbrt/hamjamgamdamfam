@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: 3768290bc8a374124920d852c67ef5dd, type: 2}
+  Destructable: 1
