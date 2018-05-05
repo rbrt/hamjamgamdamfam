@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 	Vector3 targetShipPosition;
 	Vector3 targetShipLookPosition;
 	float cursorFollowSpeed = 0f;
-	float maxCursorFollowSpeed = 10f;
+	float maxCursorFollowSpeed = 12f;
 	float cursorFollowSpeedRampUp = .35f;
 	float cursorFollowSpeedRampDown = .4f;
 
