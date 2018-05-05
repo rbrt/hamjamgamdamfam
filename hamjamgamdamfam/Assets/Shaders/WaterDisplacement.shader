@@ -4,7 +4,8 @@ Shader "Custom/WaterDisplace" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
 	_Lambda ("Lambda", Float) = 0
-	_WaveVector ("Wave Vector", Float) = 0
+	_WaveVectorX ("Wave Vector X", Float) = 0
+	_WaveVectorY ("Wave Vector Y", Float) = 0
 	_Frequency ("Frequency", Float) = 0
 	_Amplitude ("Amplitude", Float) = 0
 }
@@ -39,7 +40,8 @@ SubShader {
 
 			float _Amplitude;
 			float _Frequency;
-			float _WaveVector;
+			float _WaveVectorX;
+			float _WaveVectorY;
 			float _Lambda;
 
 			fixed2 gerstnerSumXZ(fixed2 x0, fixed2 waveVector, float freq, float amplitude, float phase, float doIt){
@@ -74,9 +76,11 @@ SubShader {
 			fixed3 gerstnerSumGenerator(fixed2 x0, float doIt){
 				fixed3 wave;
 
-				wave.xz = gerstnerSumXZ(x0, fixed2(1,1), .2, .2, .2, doIt);
+				half2 waveVector = half2(_WaveVectorX, _WaveVectorY);
+
+				wave.xz = gerstnerSumXZ(x0, waveVector, .2, .2, .2, doIt);
 				wave.y = gerstnerSumY(x0, fixed2(1,1), .2, .2, .2, doIt);
-				wave.xz += gerstnerSumXZ(x0, fixed2(1,-1), 1, .5, .1, doIt);
+				wave.xz += gerstnerSumXZ(x0, waveVector, 1, .5, .1, doIt);
 				wave.y += gerstnerSumY(x0, fixed2(1,-1), 1, .5, .1, doIt);
 
 				wave.xz = x0 - wave.xz;
