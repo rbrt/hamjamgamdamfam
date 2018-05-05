@@ -19,7 +19,7 @@ public class BasicEnemy : Enemy
 	{
 		if (currentPathNode >= pathPoints.Length)
 		{
-			Destroy(gameObject);
+			Destroyed = true;
 			return;
 		}
 
