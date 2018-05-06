@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && !dead)
 		{
 			dead = true;
 			StartCoroutine(DeathCoroutine());	
