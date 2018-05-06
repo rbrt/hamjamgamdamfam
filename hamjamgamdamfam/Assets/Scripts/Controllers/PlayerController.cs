@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
 		targetShipPosition = playerMesh.transform.position;
 	}
-
+	
 	void Update () 
 	{
 		if (dead)
