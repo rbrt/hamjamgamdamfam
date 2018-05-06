@@ -32,7 +32,42 @@ ModelImporter:
     4300006: Player_Outfit
     7400000: Talking_Animation
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badger1_MAT
+    second: {fileID: 2100000, guid: fd1a9cf7bc4a34c71905345a4bfbb91b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badger2_MAT
+    second: {fileID: 2100000, guid: 085b0aa6fb8094abe9c772ad37725fa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badger_Black_MAT
+    second: {fileID: 2100000, guid: 5519e3756db7344cbb11cb38703c7b58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badger_JacketYellow_MAT
+    second: {fileID: 2100000, guid: 0f81b274a23b648498ddd880aa2faf3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jacket_MAT
+    second: {fileID: 2100000, guid: d4bb1e819ae60412fa13ea8ea73cff63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MouthPink_MAT
+    second: {fileID: 2100000, guid: 0749ec376643e434ea5e725817556c42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vest_MAT
+    second: {fileID: 2100000, guid: 3819c2b753ca64e21b6ffc449a2bb76f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
