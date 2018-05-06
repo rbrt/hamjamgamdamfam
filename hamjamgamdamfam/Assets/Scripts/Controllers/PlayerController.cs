@@ -185,6 +185,7 @@ public class PlayerController : MonoBehaviour
 
 	public void SetDead()
 	{
+		InfoDisplay.Instance.PlayerDied();
 		dead = true;
 	}
 }

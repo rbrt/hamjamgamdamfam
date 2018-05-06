@@ -35,6 +35,8 @@ public class EnemySystem : MonoBehaviour
 	float enemyBonusRateOfFire = 0;
 	float enemyBonusBullets = 0;
 
+	bool spawning = false;
+
 	void Awake()
 	{
 		if (instance == null)
@@ -49,16 +51,16 @@ public class EnemySystem : MonoBehaviour
 		{
 			return;
 		}
-		
+
 		bool inWaveCurrently = waves > 0 || enemies.Count > 0;
 
 		if (inWaveCurrently)
 		{
 			if (Time.time - lastWaveSpawnTime > waveSplitTime &&
-				waves > 0)
+				waves > 0 &&
+				!spawning)
 			{
 				lastWaveSpawnTime = Time.time;
-				waves--;
 				StartCoroutine((SpawnEnemies()));
 			}
 
@@ -88,6 +90,8 @@ public class EnemySystem : MonoBehaviour
 
 	void AdvanceWave()
 	{
+		InfoDisplay.Instance.WaveComplete();
+
 		currentWave++;
 		waves = 4 + currentWave;
 		if (currentWave % 4 == 0)
@@ -110,6 +114,7 @@ public class EnemySystem : MonoBehaviour
 
 	IEnumerator SpawnEnemies()
 	{
+		spawning = true;
 		var path = GeneratePath();
 		for (int i = 0; i < enemiesInWave; i++)
 		{
@@ -120,6 +125,9 @@ public class EnemySystem : MonoBehaviour
 
 			yield return new WaitForSeconds(enemySpawnInterval);
 		}
+
+		waves--;
+		spawning = false;
 	}
 	
 	Vector3[] GeneratePath()
