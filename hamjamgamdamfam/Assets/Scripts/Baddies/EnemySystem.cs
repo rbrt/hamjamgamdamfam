@@ -15,6 +15,8 @@ public class EnemySystem : MonoBehaviour
 		}
 	}
 
+	public bool paused = false;
+
 	[SerializeField] protected Enemy[] enemyGrouping;
 
 	WaitForSeconds waitForSpawn;	
@@ -43,6 +45,11 @@ public class EnemySystem : MonoBehaviour
 
 	void Update()
 	{
+		if (paused)
+		{
+			return;
+		}
+		
 		bool inWaveCurrently = waves > 0 || enemies.Count > 0;
 
 		if (inWaveCurrently)

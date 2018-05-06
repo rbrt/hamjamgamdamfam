@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InfoDisplay : MonoBehaviour 
 {
 
 	static InfoDisplay instance;
+
+	[SerializeField] protected Text headingText;
+	[SerializeField] protected Animator displayAnimator;
 
 	string displayBool = "show";
 	bool displayingWaveScreen = false;
@@ -47,17 +51,27 @@ public class InfoDisplay : MonoBehaviour
 
 	public void WaveComplete()
 	{
+		TerrainSpawner.Instance.paused = true;
+		EnemySystem.Instance.paused = true;
+
 		displayingWaveScreen = true;
+		headingText.text = "Wave " + EnemySystem.Instance.GetWaveCount() + " Complete!";
+		displayAnimator.SetBool(displayBool, true);
 	}
 
 	public void PlayerDied()
 	{
-
+		headingText.text = "You Died!";
+		displayAnimator.SetBool(displayBool, true);
+		TerrainSpawner.Instance.paused = true;
+		EnemySystem.Instance.paused = true;
 	}
 
 	void DismissWave()
 	{
-
+		displayAnimator.SetBool(displayBool, false);
+		TerrainSpawner.Instance.paused = false;
+		EnemySystem.Instance.paused = false;
 	}
 
 	void DismissDeath()

@@ -6,6 +6,18 @@ using UnityEngine;
 public class TerrainSpawner : MonoBehaviour
 {
 
+    static TerrainSpawner instance;
+
+    public static TerrainSpawner Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
+    public bool paused = false;
+
     public float MosesValue = 2f;
     public float SpawnRatePerSecond = 10;
 
@@ -26,6 +38,10 @@ public class TerrainSpawner : MonoBehaviour
     void Awake()
     {
         spawnRate = 1 / SpawnRatePerSecond;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
     void Start()
     {
@@ -34,6 +50,11 @@ public class TerrainSpawner : MonoBehaviour
 
     void Update()
     {
+        if (paused)
+        {
+            return;
+        }
+
         if( lastSpawn > spawnRate)
         {
             SpawnRandom();
