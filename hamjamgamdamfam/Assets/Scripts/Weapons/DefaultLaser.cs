@@ -24,7 +24,7 @@ public class DefaultLaser : Weapon
 			return;
 		}
 
-		AudioSource.PlayClipAtPoint(laserShot, transform.position);
+		AudioController.Instance.PlayPlayerLaser();
 		lastFireTime = Time.time;
 		var laser = Instantiate(laserPrefab, laserOrigin.transform.position, laserOrigin.transform.rotation);
 	}

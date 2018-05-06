@@ -4,9 +4,32 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour 
 {
+
+	static AudioController instance;
+
+	public static AudioController Instance
+	{
+		get
+		{
+			return instance;
+		}
+	}
+
 	[SerializeField] protected AudioSource playerWarningSource;
 	[SerializeField] protected AudioSource playerHurtSource;
 	[SerializeField] protected AudioSource playerDeathSource;
+	[SerializeField] protected AudioSource playerLaserSource;
+	[SerializeField] protected AudioSource enemyHitSource;
+	[SerializeField] protected AudioSource enemyDeathSource;
+	[SerializeField] protected AudioSource enemyShotSource;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+	}
 
 	public void PlayWarningNoise()
 	{
@@ -37,5 +60,37 @@ public class AudioController : MonoBehaviour
 	public void StopDeathNoise()
 	{
 		playerDeathSource.Stop();
+	}
+
+	public void PlayEnemyHit()
+	{
+		if (!enemyHitSource.isPlaying)
+		{
+			enemyHitSource.Play();
+		}
+	}
+
+	public void PlayEnemyDeath()
+	{
+		if (!enemyDeathSource.isPlaying)
+		{
+			enemyDeathSource.Play();
+		}
+	}
+
+	public void PlayPlayerLaser()
+	{
+		if (!playerLaserSource.isPlaying)
+		{
+			playerLaserSource.Play();
+		}
+	}
+
+	public void PlayEnemyLaser()
+	{
+		if (!enemyShotSource.isPlaying)
+		{
+			enemyShotSource.Play();
+		}
 	}
 }

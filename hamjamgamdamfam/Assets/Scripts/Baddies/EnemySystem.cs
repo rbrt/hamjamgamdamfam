@@ -58,8 +58,8 @@ public class EnemySystem : MonoBehaviour
 	{
 		float startZ = 50;
 		float endZ = -20;
-		float minX = -12;
-		float maxX = 12;
+		float minX = -30;
+		float maxX = 30;
 		float minY = 10;
 		float maxY = 1;
 

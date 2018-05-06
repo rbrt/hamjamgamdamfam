@@ -49,7 +49,7 @@ public class BasicEnemy : Enemy
 
 	IEnumerator ShootBurst()
 	{
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			ShootBullet();
 			yield return new WaitForSeconds(.02f);
@@ -58,6 +58,8 @@ public class BasicEnemy : Enemy
 
 	void ShootBullet()
 	{ 
+
+		AudioController.Instance.PlayEnemyLaser();
 
 		Vector3 dir = ( Player.Instance.GetMeshPosition() - this.transform.position);
 		if ( dir.magnitude < 10f ) {
@@ -77,6 +79,7 @@ public class BasicEnemy : Enemy
 
 	public override void TakeDamage(int damage)
 	{
+		AudioController.Instance.PlayEnemyHit();
 		health -= damage;
 		if( health < 0 )
 		{
@@ -86,6 +89,7 @@ public class BasicEnemy : Enemy
 
 	void Die()
 	{
+		AudioController.Instance.PlayEnemyDeath();
 		Destroy(gameObject);
 	}
 	
