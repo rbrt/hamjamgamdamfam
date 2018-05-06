@@ -41,6 +41,7 @@ public class BasicEnemy : Enemy
 	{
 		if (currentPathNode >= pathPoints.Length)
 		{
+			InfoDisplay.Instance.missed++;
 			Destroy(gameObject);
 			return;
 		}
@@ -118,6 +119,8 @@ public class BasicEnemy : Enemy
         var go = Instantiate(DeadEffect);
         go.transform.position = transform.position;
         go.transform.rotation = Random.rotation;
+
+		InfoDisplay.Instance.kills++;
 
         Destroy(gameObject);
     }

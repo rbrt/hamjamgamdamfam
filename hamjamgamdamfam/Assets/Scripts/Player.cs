@@ -26,15 +26,6 @@ public class Player : MonoBehaviour, ITakesDamage {
 		beginningHealth = Health;
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space) && !dead)
-		{
-			dead = true;
-			StartCoroutine(DeathCoroutine());	
-		}
-	}
-	
 	void OnCollisionEnter( Collision col)
 	{
         TerrainInstance ent = col.gameObject.GetComponent<TerrainInstance>();
@@ -69,6 +60,8 @@ public class Player : MonoBehaviour, ITakesDamage {
 		}
 
 		audioController.PlayHurtSound();
+
+		InfoDisplay.Instance.damage += damage;
 
 		if( Health > 0 )
 		{

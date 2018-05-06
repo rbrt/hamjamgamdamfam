@@ -10,11 +10,14 @@ public class InfoDisplay : MonoBehaviour
 	static InfoDisplay instance;
 
 	[SerializeField] protected Text headingText;
+	[SerializeField] protected Text infoText;
 	[SerializeField] protected Animator displayAnimator;
 
 	string displayBool = "show";
 	bool displayingWaveScreen = false;
 	bool displayingDeathScreen = false;
+
+	static string infoString = "Kills:\nMissed:\nDamage Taken:\n";
 
 	public static InfoDisplay Instance 
 	{
@@ -24,12 +27,18 @@ public class InfoDisplay : MonoBehaviour
 		}
 	}
 
+	public int kills = 0;
+	public int missed = 0;
+	public int damage = 0;
+
 	void Awake()
 	{
 		if (instance == null)
 		{
 			instance = this;
 		}
+
+		infoText.text = "";
 	}
 
 	void Update()
@@ -58,6 +67,8 @@ public class InfoDisplay : MonoBehaviour
 		displayingWaveScreen = true;
 		headingText.text = "Wave " + EnemySystem.Instance.GetWaveCount() + " Complete!";
 		displayAnimator.SetBool(displayBool, true);
+
+		infoText.text = "This Wave:\nKills: " + kills + "\nMissed: " + missed + "\nDamage Taken:" + damage;
 	}
 
 	public void PlayerDied()
@@ -79,5 +90,13 @@ public class InfoDisplay : MonoBehaviour
 	void DismissDeath()
 	{
 		SceneManager.LoadScene("TitleScreen");
+	}
+
+	IEnumerator WaitThenClear()
+	{
+		yield return new WaitForSeconds(.3f);
+		kills = 0;
+		missed = 0;
+		damage = 0;
 	}
 }
