@@ -8,6 +8,7 @@ Properties {
 	_Frequency ("Frequency", Float) = 0
 	_Amplitude ("Amplitude", Float) = 0
 	_ShipPosition ("ShipPosition", Vector) = (0,0,0,0)
+	_DisplacementScale("DisplacementScale", Float) = 1
 }
 
 SubShader {
@@ -41,6 +42,7 @@ SubShader {
 			float _Amplitude;
 			float _Frequency;
 			float _DisplacementStrength;
+			float _DisplacementScale;
 			float _Lambda;
 			half4 _ShipPosition;
 
@@ -107,7 +109,7 @@ SubShader {
 				half3 worldPos = mul(unity_ObjectToWorld, vertex);
 				if (distance(worldPos.xz, _ShipPosition.xz) < 100)
 				{
-					vertex.y -= _DisplacementStrength * 10;
+					vertex.y -= _DisplacementStrength * _DisplacementScale;
 				}
 				
 				OUT.vertex = UnityObjectToClipPos(vertex);
