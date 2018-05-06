@@ -9,6 +9,8 @@ public class Player : MonoBehaviour, ITakesDamage {
 	[SerializeField] protected int Health;
 	[SerializeField] protected AudioController audioController;
 	[SerializeField] protected Transform shipTransform;
+
+	[SerializeField] protected GameObject[] playerDeathEffects;
 	
 	public List<GameObject> ShipBits;
 
@@ -22,6 +24,15 @@ public class Player : MonoBehaviour, ITakesDamage {
 	{
 		Instance = this;
 		beginningHealth = Health;
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			dead = true;
+			StartCoroutine(DeathCoroutine());	
+		}
 	}
 	
 	void OnCollisionEnter( Collision col)
@@ -68,11 +79,10 @@ public class Player : MonoBehaviour, ITakesDamage {
 		{
 			if (!dead)
 			{
-				CharacterDisplayController.Instance.PlayDeathDialogue();
+				dead = true;
+				StartCoroutine(DeathCoroutine());
 			}
-			dead = true;
-
-			StartCoroutine(DeathCoroutine());
+			
 		}
 	}
 
@@ -87,8 +97,35 @@ public class Player : MonoBehaviour, ITakesDamage {
 		audioController.StopWarningNoise();
 		audioController.PlayDeathNoise();
 		GetComponentInParent<PlayerController>().SetDead();
-		yield return null;
 
+		var renderers = GetComponentsInChildren<Renderer>();
+		foreach(var ren in renderers)
+		{
+			ren.enabled = false;
+		}
+
+		for (int i = 0; i < playerDeathEffects.Length; i++)
+		{
+			playerDeathEffects[i].SetActive(true);
+		}
+
+		yield return new WaitForSeconds(.3f);
+
+		for (float i = 0; i < 1; i += Time.deltaTime / 5f)
+		{
+			if (i > .05f)
+			{
+				audioController.StopDeathNoise();
+			}
+
+			transform.parent.position += transform.parent.forward * Time.deltaTime * 1.5f;
+			transform.parent.position += transform.parent.right * Time.deltaTime * 1f;
+			transform.parent.position += -transform.parent.up * Time.deltaTime * 1.5f;
+			yield return null;
+		}
+		yield return new WaitForSeconds(.5f);
+
+		CharacterDisplayController.Instance.PlayDeathDialogue();
 	}
 
 	IEnumerator TakeDamageCoroutine()
