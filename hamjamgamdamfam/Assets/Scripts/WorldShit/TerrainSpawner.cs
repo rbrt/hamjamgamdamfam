@@ -64,7 +64,7 @@ public class TerrainSpawner : MonoBehaviour
             return;
         }
 
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, prefab.Collectable ? 90 : Random.value * 360, 0));
 
         position.y = prefab.SpawnHeight + Random.Range(0f, prefab.SpawnHeightDelta);
         
@@ -75,20 +75,7 @@ public class TerrainSpawner : MonoBehaviour
     {
         int prefabIndex = Random.Range(0, TerrainTypes.Count);
         var prefab = TerrainTypes[prefabIndex];
-        var position = GetRandomLocation(prefab.XDistrobution);
-
-        if (Mathf.Abs((float)position.x) < MosesValue)
-        {
-            return;
-        }
-
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
-
-
-
-        position.y = prefab.SpawnHeight + Random.Range(0f, prefab.SpawnHeightDelta);
-
-        manager.Create(prefab, position, rotation);
+        Spawn(prefab);
     }
 
     Vector3 GetRandomLocation(AnimationCurve xBias)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TerrainInstance :  Entitie, ITakesDamage {
 	
 	public bool Destructable;
+    public bool Collectable;
     public float Health;
     Coroutine damageFlashCoroutine;
     public float damageTime = 0.75f;
@@ -18,7 +19,7 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 		{
 			TerrainData td = data as TerrainData;
 			Destroyed = false;
-
+            Collectable = td.Collectable;
 			Destructable = td.Destructable;
             transform.localScale = td.Scale +
                 new Vector3(Random.Range(0f, td.ScaleDelta.x),
@@ -73,6 +74,33 @@ public class TerrainInstance :  Entitie, ITakesDamage {
             }
 		}
 	}
+
+
+    public void DestroyTerrain()
+    {
+        if ( Collectable)
+        {
+            StartCoroutine(DestroyCollectableCoroutine());
+        } else{
+            Destroyed = true;
+        }
+    }
+
+    IEnumerator DestroyCollectableCoroutine()
+    {
+        float time = 0;
+        float shrinkTime = 1.5f;
+        Vector3 origSize = transform.localScale;
+        while (time < shrinkTime) 
+        {
+            transform.localScale = Vector3.Lerp(origSize, Vector3.zero, time / shrinkTime);
+            time += Time.deltaTime;
+            transform.position = Player.Instance.transform.position;
+            yield return null;
+        }
+        Destroyed = true;
+        yield return null;
+    }
 
     IEnumerator TakeDamageCoroutine()
     {

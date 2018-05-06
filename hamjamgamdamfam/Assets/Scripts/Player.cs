@@ -24,9 +24,19 @@ public class Player : MonoBehaviour, ITakesDamage {
 	
 	void OnCollisionEnter( Collision col)
 	{
-		if ( col.gameObject.GetComponent<Entitie>())
+        TerrainInstance ent = col.gameObject.GetComponent<TerrainInstance>();
+
+		if ( ent != null)
 		{
-			TakeDamage( Globals.Instance.EnviromentDamage);
+            if( ent.Collectable)
+            {
+                ent.DestroyTerrain();
+
+            } else
+            {
+                TakeDamage(Globals.Instance.EnviromentDamage);
+
+            }
 		}
 	}
 
@@ -65,7 +75,6 @@ public class Player : MonoBehaviour, ITakesDamage {
 		yield return null;
 
 	}
-
 
 	IEnumerator TakeDamageCoroutine()
 	{

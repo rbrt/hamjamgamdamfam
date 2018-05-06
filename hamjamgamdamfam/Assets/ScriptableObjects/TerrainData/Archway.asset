@@ -14,11 +14,12 @@ MonoBehaviour:
   mesh: {fileID: 4300000, guid: 92f06f6ea1252fe40878e2a225ebd62a, type: 3}
   material: {fileID: 2100000, guid: 25f880f4471494ee9845f6954c3ee372, type: 2}
   Destructable: 1
+  Collectable: 0
   health: 100
-  Scale: {x: 1, y: 1, z: 1}
-  ScaleDelta: {x: 0.1, y: 0.1, z: 0.1}
-  SpawnHeight: -0.001
-  SpawnHeightDelta: 0.001
+  Scale: {x: 3, y: 3, z: 3}
+  ScaleDelta: {x: 0, y: 0, z: 0}
+  SpawnHeight: -50
+  SpawnHeightDelta: 0
   XDistrobution:
     serializedVersion: 2
     m_Curve:
