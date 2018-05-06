@@ -2027,6 +2027,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interfaceType: 1
   playerMesh: {fileID: 1868962609298218}
+  playerShipMesh: {fileID: 1443258771923708}
+  leftEngine: {fileID: 1258016442918702}
+  rightEngine: {fileID: 1558103575536708}
   activeWeapon: {fileID: 114763449463977858}
   viewCamera: {fileID: 20194335320042536}
   visualizationCube: {fileID: 4703849906112208}
