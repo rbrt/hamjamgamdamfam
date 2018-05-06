@@ -9,26 +9,37 @@ ModelImporter:
     100006: Left_Engine_Hinge
     100008: Right_Engine
     100010: Right_Engine_Hinge
+    100012: Engine_Trails
     400000: Body
     400002: //RootNode
     400004: Left_Engine
     400006: Left_Engine_Hinge
     400008: Right_Engine
     400010: Right_Engine_Hinge
+    400012: Engine_Trails
     2100000: HeroShip_Body1_MAT
     2100002: HeroShip_Body2_MAT
     2100004: HeroShip_EngineGlow_MAT
     2100006: HeroShip_Body3_MAT
+    2100008: EngineGradient_MAT
     2300000: Body
     2300002: Left_Engine
     2300004: Right_Engine
+    2300006: Engine_Trails
     3300000: Body
     3300002: Left_Engine
     3300004: Right_Engine
+    3300006: Engine_Trails
     4300000: Body
     4300002: Left_Engine
     4300004: Right_Engine
+    4300006: Engine_Trails
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EngineGradient_MAT
+    second: {fileID: 2100000, guid: 81a4a968c633208478d1b374d71ed7fc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
