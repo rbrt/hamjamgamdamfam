@@ -50,6 +50,18 @@ public class EntitieManager : MonoBehaviour {
 		}
 	}
 
+    void FixedUpdate()
+    {
+        for (int i = 0; i < MaxEntitieCount; i++)
+        {
+            if (EntitieSpool[i].gameObject.activeSelf)
+            {
+                //Manual FIxed Update
+                EntitieSpool[i].ManualFixedUpdate();
+            }
+        }
+    }
+
 
 	public Entitie Create( EntitieData outline, Vector3 position, Quaternion rotation)
 	{

@@ -12,6 +12,11 @@ public class Entitie : MonoBehaviour {
 	{
 	}
 
+    public virtual void ManualFixedUpdate()
+    {
+        
+    }
+
 	public virtual void Init( EntitieData ent)
 	{
 		meshFilter.mesh = ent.mesh;

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 4300000, guid: e71a153ed6d7d82488b1eebba2f1d343, type: 3}
   material: {fileID: 2100000, guid: 476122a0c5de347c882562bd743c1898, type: 2}
+  overrideCollider: {fileID: 4300000, guid: 1e6676e2ec39e5946946fbaf95b2f2ff, type: 3}
   Destructable: 0
   Collectable: 1
   health: 100
-  Scale: {x: 0.7, y: 0.7, z: 0.7}
+  Scale: {x: 1, y: 1, z: 1}
   ScaleDelta: {x: 0, y: 0, z: 0}
-  SpawnHeight: 2
-  SpawnHeightDelta: 2
+  SpawnHeight: 1
+  SpawnHeightDelta: 0
   XDistrobution:
     serializedVersion: 2
     m_Curve:
