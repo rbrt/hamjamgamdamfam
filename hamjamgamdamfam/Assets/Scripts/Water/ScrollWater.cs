@@ -18,8 +18,8 @@ public class ScrollWater : MonoBehaviour
 
 	void Update()
 	{
-		planeA.transform.position -= Vector3.forward * Time.deltaTime * Globals.Instance.StaticSpeed * scrollSpeed;
-		planeB.transform.position -= Vector3.forward * Time.deltaTime * Globals.Instance.StaticSpeed * scrollSpeed;
+		planeA.transform.position -= Vector3.forward * Time.deltaTime * Globals.Instance.EmulatedMovementSpeed * scrollSpeed;
+		planeB.transform.position -= Vector3.forward * Time.deltaTime * Globals.Instance.EmulatedMovementSpeed * scrollSpeed;
 
 		if (planeA.transform.localPosition.z < zBound)
 		{

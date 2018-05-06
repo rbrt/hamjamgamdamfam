@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e6cb3ddc4474106b26cfc00e111d17, type: 3}
+  m_Name: SmallCluster2
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 4300000, guid: 4a9247a8bd095a54da3319aa2bcb22f9, type: 3}
+  material: {fileID: 2100000, guid: 3768290bc8a374124920d852c67ef5dd, type: 2}
+  Destructable: 1
+  health: 100
+  Scale: {x: 7, y: 7, z: 7}
+  ScaleDelta: {x: 7, y: 7, z: 7}
+  SpawnHeight: -50
+  SpawnHeightDelta: 0.001
+  XDistrobution:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: -1
+      inSlope: 0.5258969
+      outSlope: 0.5258969
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.16016741
+    - serializedVersion: 3
+      time: -0.006720902
+      value: -0.006720841
+      inSlope: 2.2096248
+      outSlope: 2.2096248
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06472743
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.45577765
+      outSlope: 0.45577765
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.112877734
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

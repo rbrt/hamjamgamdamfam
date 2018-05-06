@@ -57,7 +57,7 @@ public class TerrainSpawner : MonoBehaviour
 
     void Spawn( TerrainData prefab)
     {
-        var position = GetRandomLocation();
+        var position = GetRandomLocation(prefab.XDistrobution);
 
         if (Mathf.Abs((float)position.x) < MosesValue)
         {
@@ -67,13 +67,15 @@ public class TerrainSpawner : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
 
         position.y = prefab.SpawnHeight + Random.Range(0f, prefab.SpawnHeightDelta);
-
+        
         manager.Create(prefab, position, rotation);
     }
 
     void SpawnRandom()
     {
-        var position = GetRandomLocation();
+        int prefabIndex = Random.Range(0, TerrainTypes.Count);
+        var prefab = TerrainTypes[prefabIndex];
+        var position = GetRandomLocation(prefab.XDistrobution);
 
         if (Mathf.Abs((float)position.x) < MosesValue)
         {
@@ -82,18 +84,17 @@ public class TerrainSpawner : MonoBehaviour
 
         Quaternion rotation = Quaternion.Euler(new Vector3(0, Random.value * 360, 0));
 
-        int prefabIndex = Random.Range(0, TerrainTypes.Count);
-        var prefab = TerrainTypes[prefabIndex];
+
 
         position.y = prefab.SpawnHeight + Random.Range(0f, prefab.SpawnHeightDelta);
 
         manager.Create(prefab, position, rotation);
     }
 
-    Vector3 GetRandomLocation()
+    Vector3 GetRandomLocation(AnimationCurve xBias)
     {
         Vector2 rand2D = Random.insideUnitCircle;
-
+        rand2D.x = xBias.Evaluate(rand2D.x);
         rand2D *= range;
         rand2D += rand2D + (minDistance * Vector2.up);
         randomVector.x = rand2D.x;
