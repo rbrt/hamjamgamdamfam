@@ -15,5 +15,5 @@ public class TerrainData : EntitieData {
     public float SpawnHeightDelta = 1;
 
 
-
+    public AnimationCurve XDistrobution;
 }

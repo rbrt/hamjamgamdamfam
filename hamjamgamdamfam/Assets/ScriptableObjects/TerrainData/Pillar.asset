@@ -9,10 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20e6cb3ddc4474106b26cfc00e111d17, type: 3}
-  m_Name: ShortBoy
+  m_Name: Pillar
   m_EditorClassIdentifier: 
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 1b693738a8e964b58bac1e6461cfb192, type: 2}
+  mesh: {fileID: 4300000, guid: 55893df494de6904b958cbc811ca0de6, type: 3}
+  material: {fileID: 2100000, guid: 3768290bc8a374124920d852c67ef5dd, type: 2}
   Destructable: 1
   health: 100
-  Scale: {x: 7, y: 3, z: 1}
+  Scale: {x: 1, y: 1, z: 1}
+  ScaleDelta: {x: 0.1, y: 0.1, z: 0.1}
+  SpawnHeight: -0.001
+  SpawnHeightDelta: 0.001

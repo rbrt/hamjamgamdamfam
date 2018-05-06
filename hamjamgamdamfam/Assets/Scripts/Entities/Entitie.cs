@@ -16,6 +16,7 @@ public class Entitie : MonoBehaviour {
 	{
 		meshFilter.mesh = ent.mesh;
 		meshRenderer.material = ent.material;
+        GetComponent<MeshCollider>().sharedMesh = ent.mesh;
 	}
 
 

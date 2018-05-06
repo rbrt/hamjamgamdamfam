@@ -61,9 +61,16 @@ MonoBehaviour:
   clusterSize: 70
   manager: {fileID: 114916627159220290}
   TerrainTypes:
-  - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
-  - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
+  - {fileID: 11400000, guid: 19f5fcd44280a40a1b2bcfceeaba8c9b, type: 2}
   - {fileID: 11400000, guid: 59d8b361630c44a679a8ea9c226f8fa6, type: 2}
+  - {fileID: 11400000, guid: f5af52e9a1d404672acc41ef0830abd9, type: 2}
+  - {fileID: 11400000, guid: 4ab3a028a027546f48bda41ac1a28c1a, type: 2}
+  - {fileID: 11400000, guid: aec6612006d964a969b6bb9679d719a4, type: 2}
+  - {fileID: 11400000, guid: ff636b6bcb3194bac92c3e66c57ba4c8, type: 2}
+  - {fileID: 11400000, guid: 8fa1fb0f3363b4ce1a69d8c83522c3c8, type: 2}
+  - {fileID: 11400000, guid: d75a1202abd31470aac5b827b18712fd, type: 2}
+  - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
+  - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
 --- !u!114 &114916627159220290
 MonoBehaviour:
   m_ObjectHideFlags: 1
