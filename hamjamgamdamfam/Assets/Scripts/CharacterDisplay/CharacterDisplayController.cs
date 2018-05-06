@@ -72,7 +72,7 @@ public class CharacterDisplayController : MonoBehaviour
 			return;
 		}
 
-		currentDialogueInterval = Random.Range(5, 10);
+		currentDialogueInterval = Random.Range(10, 20);
 		lastDialogueTime = Time.time;
 
 		int index = (int)(Random.value * positiveDialogue.Length); 
@@ -89,7 +89,7 @@ public class CharacterDisplayController : MonoBehaviour
 			return;
 		}
 
-		currentDialogueInterval = Random.Range(5, 10);
+		currentDialogueInterval = Random.Range(10, 20);
 		lastDialogueTime = Time.time;
 
 		int index = (int)(Random.value * negativeDialogue.Length); 
@@ -110,7 +110,7 @@ public class CharacterDisplayController : MonoBehaviour
 
 	void PlayDialogue(string airBadgerLine, string chiefBadgerLine)
 	{
-		if (displaying)
+		if (displaying || Player.Instance.GetDead())
 		{
 			return;
 		}

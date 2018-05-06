@@ -76,6 +76,12 @@ public class Player : MonoBehaviour, ITakesDamage {
 			StartCoroutine(DeathCoroutine());
 		}
 	}
+
+
+	public bool GetDead()
+	{
+		return dead;
+	}
 	
 	IEnumerator DeathCoroutine()
 	{

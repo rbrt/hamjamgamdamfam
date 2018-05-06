@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		Cursor.visible = false;
-		
+
 		#if UNITY_EDITOR
 		var value = EditorPrefs.GetString(ControllerTypeKey);
 		if (!string.IsNullOrEmpty(value))
