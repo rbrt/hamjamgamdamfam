@@ -13,6 +13,7 @@ public class BasicEnemy : Enemy
 	int currentPathNode = 0;
 	int bullets = 5;
 
+    public GameObject DeadEffect;
 	int points = 10;
 
 	void Start()
@@ -108,7 +109,12 @@ public class BasicEnemy : Enemy
 	{
 		ScoreManager.Instance.IncreaseScore(points * EnemySystem.Instance.GetWaveCount());
 		AudioController.Instance.PlayEnemyDeath();
-		Destroy(gameObject);
-	}
-	
+
+        gameObject.SetActive(false);
+        var go = Instantiate(DeadEffect);
+        go.transform.position = transform.position;
+        go.transform.rotation = Random.rotation;
+
+        Destroy(gameObject);
+    }
 }

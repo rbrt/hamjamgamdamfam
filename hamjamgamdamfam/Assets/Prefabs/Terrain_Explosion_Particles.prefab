@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4035322411667190}
   - component: {fileID: 198298852611029280}
   - component: {fileID: 199157868164603184}
+  - component: {fileID: 114235851111482194}
   m_Layer: 0
   m_Name: Terrain_Explosion_Particles
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114235851111482194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073031007945416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667c4d45b9b424a348402825a7ea5370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
 --- !u!198 &198298852611029280
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -51,7 +64,7 @@ ParticleSystem:
   lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -664,7 +677,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 13
+    type: 6
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -922,7 +935,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 40
+        scalar: 80
         minScalar: 0
         maxCurve:
           serializedVersion: 2
