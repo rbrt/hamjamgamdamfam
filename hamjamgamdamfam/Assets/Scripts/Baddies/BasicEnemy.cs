@@ -24,7 +24,7 @@ public class BasicEnemy : Enemy
 	{
 		if (currentPathNode >= pathPoints.Length)
 		{
-			Destroyed = true;
+			Destroy(gameObject);
 			return;
 		}
 
@@ -71,8 +71,13 @@ public class BasicEnemy : Enemy
 		health -= damage;
 		if( health < 0 )
 		{
-			Destroyed = true;
+			Die();
 		}
+	}
+
+	void Die()
+	{
+		Destroy(gameObject);
 	}
 	
 }
