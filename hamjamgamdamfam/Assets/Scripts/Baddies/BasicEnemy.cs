@@ -13,6 +13,8 @@ public class BasicEnemy : Enemy
 	int currentPathNode = 0;
 	int bullets = 5;
 
+	int points = 10;
+
 	void Start()
 	{
 		transform.position = pathPoints[currentPathNode];
@@ -32,7 +34,7 @@ public class BasicEnemy : Enemy
 			rateOfFire = .25f;
 		}
 	}
-	
+
 	public override void ManualUpdate()
 	{
 		if (currentPathNode >= pathPoints.Length)
@@ -102,6 +104,7 @@ public class BasicEnemy : Enemy
 
 	void Die()
 	{
+		ScoreManager.Instance.IncreaseScore(points * EnemySystem.Instance.GetWaveCount());
 		AudioController.Instance.PlayEnemyDeath();
 		Destroy(gameObject);
 	}

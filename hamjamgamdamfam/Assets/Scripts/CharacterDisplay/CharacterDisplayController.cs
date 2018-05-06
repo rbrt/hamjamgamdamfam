@@ -27,7 +27,7 @@ public class CharacterDisplayController : MonoBehaviour
 
 	string[] positiveDialogue = new string[]
 	{
-		"Great work!\tI'm the best!",
+		"Great work!\tI always win!",
 		"Nice shot!\tRoger that!",
 		"Don't get cocky!\t.....",
 		"Another great job!\tOf course!"
