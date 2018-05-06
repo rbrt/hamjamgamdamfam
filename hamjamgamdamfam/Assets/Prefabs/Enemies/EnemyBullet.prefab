@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e2db251423d884e3d97cfe12bcc73d60, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,8 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162d071b342204c7090c06bba2075e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  power: 25
+  power: 5
   direction: {x: 0, y: 0, z: 0}
 --- !u!135 &135481663282743360
 SphereCollider:

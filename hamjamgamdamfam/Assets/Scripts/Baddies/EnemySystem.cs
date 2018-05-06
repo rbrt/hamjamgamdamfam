@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class EnemySystem : MonoBehaviour 
 {
@@ -10,11 +11,34 @@ public class EnemySystem : MonoBehaviour
 	WaitForSeconds waitForSpawn;	
 	float enemySpawnInterval = 1f;
 
+	List<Enemy> enemies = new List<Enemy>();
+
 	void Start()
 	{
 		waitForSpawn = new WaitForSeconds(enemySpawnInterval);
 
 		StartCoroutine((SpawnEnemies()));
+	}
+
+	void Update()
+	{
+		bool anyNull = false;
+		foreach (var enemy in enemies)
+		{
+			if (enemy == null)
+			{
+				anyNull = true;
+			}
+			else
+			{
+				enemy.ManualUpdate();
+			}
+		}
+
+		if (anyNull)
+		{
+			enemies = enemies.Where(x => x != null).ToList();
+		}
 	}
 
 	IEnumerator SpawnEnemies()
@@ -24,6 +48,7 @@ public class EnemySystem : MonoBehaviour
 		{
 			var enemy = Instantiate(enemyGrouping[i]).GetComponent<Enemy>();
 			enemy.SetPath(path);
+			enemies.Add(enemy);
 
 			yield return waitForSpawn;
 		}

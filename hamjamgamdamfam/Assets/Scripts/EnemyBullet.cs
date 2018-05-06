@@ -9,8 +9,7 @@ public class EnemyBullet : MonoBehaviour {
 
 	void Update()
 	{
-		transform.position =
-			transform.position + ( direction * Globals.Instance.BulletSpeed * Time.deltaTime);
+		transform.position = transform.position + ( direction * Globals.Instance.BulletSpeed * Time.deltaTime);
 
 		if( transform.position.z < -25) 
 		{

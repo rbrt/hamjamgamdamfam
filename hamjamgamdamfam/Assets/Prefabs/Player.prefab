@@ -266,6 +266,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4913900612821960}
+  - component: {fileID: 65544273199309480}
+  - component: {fileID: 54335564396162844}
+  - component: {fileID: 114534840706971782}
   m_Layer: 0
   m_Name: HeroShip
   m_TagString: Untagged
@@ -426,9 +429,6 @@ GameObject:
   - component: {fileID: 4335372646761684}
   - component: {fileID: 114655833120373166}
   - component: {fileID: 114333926626964188}
-  - component: {fileID: 114397105426823842}
-  - component: {fileID: 65970830873147016}
-  - component: {fileID: 54230266087463356}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1987,17 +1987,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106551586867576}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54230266087463356
+--- !u!54 &54335564396162844
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696505730470378}
+  m_GameObject: {fileID: 1443258771923708}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -2014,18 +2014,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65970830873147016
+--- !u!65 &65544273199309480
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696505730470378}
+  m_GameObject: {fileID: 1443258771923708}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.33, y: 2, z: 2.57}
-  m_Center: {x: 0, y: -0.24, z: 0.36}
+  m_Size: {x: 2.14, y: 0.7, z: 1.15}
+  m_Center: {x: 0, y: 0.13, z: 0.25}
 --- !u!81 &81634290508330190
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2056,25 +2056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd61edfcae814f7e8bc4ca603cb3d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114397105426823842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696505730470378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c106e07f28142c188422a3a80f82db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 300
-  audioController: {fileID: 0}
-  playerHurtClip: {fileID: 8300000, guid: bb9633dbd272e47de84ef69aa16fffba, type: 3}
-  ShipBits:
-  - {fileID: 1239602060785446}
-  - {fileID: 1001036192191096}
-  - {fileID: 1480687201488170}
-  damageTime: 0.75
 --- !u!114 &114533734667081860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2087,6 +2068,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: bdba067478d4a4d489c1ae7f23383b0e, type: 2}
+--- !u!114 &114534840706971782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443258771923708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c106e07f28142c188422a3a80f82db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 300
+  audioController: {fileID: 0}
+  shipTransform: {fileID: 4784438706762886}
+  ShipBits:
+  - {fileID: 1239602060785446}
+  - {fileID: 1001036192191096}
+  - {fileID: 1480687201488170}
+  damageTime: 0.75
 --- !u!114 &114655833120373166
 MonoBehaviour:
   m_ObjectHideFlags: 1

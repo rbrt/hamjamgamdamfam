@@ -30,8 +30,9 @@ public class BasicEnemy : Enemy
 
 		if (Vector3.Distance(transform.position, pathPoints[currentPathNode]) > .1f)
 		{
-			transform.position =
-			   Vector3.MoveTowards(transform.position, pathPoints[currentPathNode], moveSpeed * Globals.Instance.StaticSpeed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, 
+													 pathPoints[currentPathNode], 
+													 moveSpeed * Globals.Instance.StaticSpeed * Time.deltaTime);
 		}
 		else
 		{
@@ -40,17 +41,25 @@ public class BasicEnemy : Enemy
 
 		if( lastShot > rateOfFire )
 		{
-			ShootBullet();
+			StartCoroutine(ShootBurst());
 			lastShot = 0;
 		}
 		lastShot += Time.deltaTime;
+	}
 
+	IEnumerator ShootBurst()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			ShootBullet();
+			yield return new WaitForSeconds(.02f);
+		}
 	}
 
 	void ShootBullet()
 	{ 
 
-		Vector3 dir = ( Player.Instance.transform.position - this.transform.position);
+		Vector3 dir = ( Player.Instance.GetMeshPosition() - this.transform.position);
 		if ( dir.magnitude < 10f ) {
 			return;
 		}
