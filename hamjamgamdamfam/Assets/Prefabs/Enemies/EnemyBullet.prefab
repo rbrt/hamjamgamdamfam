@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162d071b342204c7090c06bba2075e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
+  power: 1
   direction: {x: 0, y: 0, z: 0}
 --- !u!135 &135481663282743360
 SphereCollider:
