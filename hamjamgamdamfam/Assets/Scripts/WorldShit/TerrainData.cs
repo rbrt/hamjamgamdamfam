@@ -7,6 +7,13 @@ public class TerrainData : EntitieData {
 
 	public bool Destructable;
 
+	public int health = 500;
+
 	public Vector3 Scale = Vector3.one;
+    public Vector3 ScaleDelta = Vector3.one;
+    public float SpawnHeight = 0;
+    public float SpawnHeightDelta = 1;
+
+
 
 }

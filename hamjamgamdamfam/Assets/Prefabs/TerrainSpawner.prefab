@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1390425398057472}
+  m_RootGameObject: {fileID: 1124254658508792}
   m_IsPrefabParent: 1
---- !u!1 &1390425398057472
+--- !u!1 &1124254658508792
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4384666329641920}
-  - component: {fileID: 114316001670725972}
+  - component: {fileID: 4401887585937012}
+  - component: {fileID: 114729601800779822}
+  - component: {fileID: 114916627159220290}
   m_Layer: 0
   m_Name: TerrainSpawner
   m_TagString: Untagged
@@ -27,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4384666329641920
+--- !u!4 &4401887585937012
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390425398057472}
+  m_GameObject: {fileID: 1124254658508792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.85484695, y: -5.778264, z: 5.896943}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,26 +41,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114316001670725972
+--- !u!114 &114729601800779822
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390425398057472}
+  m_GameObject: {fileID: 1124254658508792}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51fc5130072a542bc82fd62469c64789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 5
-  MaxTerrainCount: 2000
+  MosesValue: 2
+  SpawnRatePerSecond: 10
   minDistance: 150
   range: 50
   TerrainPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
     type: 2}
   clusterSize: 70
-  KILL_DISTANCE: -20
-  live: 0
+  manager: {fileID: 114916627159220290}
   TerrainTypes:
   - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
   - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
+  - {fileID: 11400000, guid: 59d8b361630c44a679a8ea9c226f8fa6, type: 2}
+--- !u!114 &114916627159220290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124254658508792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8ea6e664a8402298e8c1c92d5f4ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntitiePrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
+    type: 2}
+  MaxEntitieCount: 2000
+  live: 0
