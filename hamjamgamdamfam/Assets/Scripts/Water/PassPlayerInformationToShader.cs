@@ -9,7 +9,6 @@ public class PassPlayerInformationToShader : MonoBehaviour
 	Vector4 pos = Vector4.zero;
 	Vector3 displacedPosition = Vector3.zero;
 
-	float maxY = 0;
 	float minY = -2.75f;
 	
 	void Update()

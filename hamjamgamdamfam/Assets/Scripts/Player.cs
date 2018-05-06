@@ -8,7 +8,7 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 	[SerializeField] protected int Health;
 	[SerializeField] protected AudioController audioController;
-	[SerializeField] protected AudioClip playerHurtClip;
+	[SerializeField] protected Transform shipTransform;
 	
 	public List<GameObject> ShipBits;
 
@@ -28,6 +28,11 @@ public class Player : MonoBehaviour, ITakesDamage {
 		{
 			TakeDamage( Globals.Instance.EnviromentDamage);
 		}
+	}
+
+	public Vector3 GetMeshPosition()
+	{
+		return shipTransform.position;
 	}
 
 	public void TakeDamage(int damage)
@@ -56,7 +61,7 @@ public class Player : MonoBehaviour, ITakesDamage {
 	{
 		audioController.StopWarningNoise();
 		audioController.PlayDeathNoise();
-		GetComponent<PlayerController>().SetDead();
+		GetComponentInParent<PlayerController>().SetDead();
 		yield return null;
 
 	}

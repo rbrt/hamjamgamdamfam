@@ -104,7 +104,7 @@ SubShader {
 			v2f vert(appdata_base IN){
 				v2f OUT;
 				float4 vertex = IN.vertex;
-				//vertex.xyz = gerstnerSumGenerator(vertex.xz, 0);
+				vertex.xyz = gerstnerSumGenerator(vertex.xz, 0);
 
 				half3 worldPos = mul(unity_ObjectToWorld, vertex);
 				if (distance(worldPos.xz, _ShipPosition.xz) < 100)
