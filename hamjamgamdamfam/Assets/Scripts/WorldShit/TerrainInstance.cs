@@ -28,6 +28,7 @@ public class TerrainInstance :  Entitie, ITakesDamage {
                             Random.Range(0f, td.ScaleDelta.z));
 
             this.Health = td.health;
+            
 		}
 		else 
 		{
@@ -44,14 +45,19 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 	public override void ManualUpdate()
 	{
 		base.ManualUpdate();
-		UpdatePosition();
+		
 	}
+
+    public override void ManualFixedUpdate()
+    {
+        base.ManualFixedUpdate();
+        UpdatePosition();
+    }
 	
 	void UpdatePosition()
 	{
-		// Movement
-		transform.position = 
-			transform.position + ( Vector3.back * Speed * Time.deltaTime );
+        // Movement
+        GetComponent<Rigidbody>().MovePosition( transform.position + (Vector3.back * Speed * Time.fixedDeltaTime));
 		
 		if ( transform.position.z < -10)
 		{	
