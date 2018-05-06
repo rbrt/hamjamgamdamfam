@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 	float cursorFollowSpeedRampUp = .35f;
 	float cursorFollowSpeedRampDown = .4f;
 
+	bool dead = false;
+
 	public ControllerInterface.ControllerTypes InterfaceType
 	{
 		get
@@ -72,6 +74,11 @@ public class PlayerController : MonoBehaviour
 
 	void Update () 
 	{
+		if (dead)
+		{
+			return;
+		}
+
 		HandleReticle();
 		MovePlayer();
 		HandleFiring();
@@ -122,7 +129,8 @@ public class PlayerController : MonoBehaviour
 		targetShipLookPosition = viewCamera.ViewportToWorldPoint(new Vector3(reticleViewportPoint.x, reticleViewportPoint.y, 15));
 
 		var targetRotation = Quaternion.LookRotation(targetShipLookPosition - playerShipMesh.transform.position, Vector3.up);
-		playerShipMesh.transform.rotation = Quaternion.RotateTowards(playerShipMesh.transform.rotation, targetRotation, 150 * Time.deltaTime);
+		//playerShipMesh.transform.rotation = Quaternion.RotateTowards(playerShipMesh.transform.rotation, targetRotation, 150 * Time.deltaTime);
+		playerShipMesh.transform.rotation = targetRotation;
 
 		var rollIntensity = Vector3.Distance(playerMesh.transform.position, targetShipPosition) / 7f;
 		if (playerMesh.transform.position.x < targetShipPosition.x)
@@ -132,7 +140,8 @@ public class PlayerController : MonoBehaviour
 
 		// Barrel roll mode
 		//playerMesh.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, rollIntensity * 45));
-		playerMesh.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rollIntensity * 90));
+		var euler = playerShipMesh.transform.localRotation.eulerAngles;
+		playerShipMesh.transform.rotation = Quaternion.Euler(new Vector3(euler.x, euler.y, rollIntensity * 90));
 		rightEngine.transform.localRotation = Quaternion.Euler(new Vector3(rollIntensity * 30, 0, 0));
 		leftEngine.transform.localRotation = Quaternion.Euler(new Vector3(-rollIntensity * 30, 0, 0));
 
@@ -165,5 +174,10 @@ public class PlayerController : MonoBehaviour
 	void HandleReticle()
 	{
 		UIController.Instance.SetTargetReticlePosition(Input.mousePosition);
+	}
+
+	public void SetDead()
+	{
+		dead = true;
 	}
 }

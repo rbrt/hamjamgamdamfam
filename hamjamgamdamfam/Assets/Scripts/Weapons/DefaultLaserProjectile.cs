@@ -28,6 +28,12 @@ public class DefaultLaserProjectile : MonoBehaviour
 
 	void OnCollisionEnter( Collision col)
 	{
+		var player = col.gameObject.GetComponentInParent<Player>();
+		if (player)
+		{
+			return;
+		}
+
 		ITakesDamage td = col.gameObject.GetComponent<ITakesDamage>();
 		if ( td != null)
 		{
