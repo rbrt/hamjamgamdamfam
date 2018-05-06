@@ -79,6 +79,11 @@ public class PlayerController : MonoBehaviour
 			return;
 		}
 
+		playerXRange.x = viewCamera.ViewportToWorldPoint(new Vector3(-.2f, .5f, transform.position.z)).x;
+		playerXRange.y = viewCamera.ViewportToWorldPoint(new Vector3(1.2f, .5f, transform.position.z)).x;
+		playerYRange.x = viewCamera.ViewportToWorldPoint(new Vector3(.5f, -.4f, transform.position.z)).y;
+		playerYRange.y = viewCamera.ViewportToWorldPoint(new Vector3(.5f, 1.5f, transform.position.z)).y;
+
 		HandleReticle();
 		MovePlayer();
 		HandleFiring();
@@ -90,15 +95,15 @@ public class PlayerController : MonoBehaviour
 		var reticleWorldPosition = UIController.Instance.GetWorldSpaceReticlePosition(playerMesh.transform.position.z);
 		reticleWorldPosition.z = playerMesh.transform.position.z;
 		
-		// Everything is mirrored and coordinate space is jank
 		var xProgress = Mathf.Clamp01((reticleWorldPosition.x + Mathf.Abs(screenXRange.x)) / (screenXRange.y + Mathf.Abs(screenXRange.x)));
 		var yProgress = Mathf.Clamp01((reticleWorldPosition.y + Mathf.Abs(screenYRange.x)) / (screenYRange.y + Mathf.Abs(screenYRange.x)));
-		
-		xProgress = 1 - xProgress;
-		yProgress = 1 - yProgress;
 
-		reticleWorldPosition.x = Mathf.Lerp(playerXRange.x, playerXRange.y, xProgress);
-		reticleWorldPosition.y = Mathf.Lerp(playerYRange.x, playerYRange.y, yProgress);
+		var reticlePosition = UIController.Instance.GetReticleViewportPosition();
+		xProgress = (reticlePosition.x * Screen.width) / Screen.width;
+		yProgress = (reticlePosition.y * Screen.height) / Screen.height;
+
+		reticleWorldPosition.x = Mathf.Lerp(playerXRange.y, playerXRange.x, xProgress);
+		reticleWorldPosition.y = Mathf.Lerp(playerYRange.y, playerYRange.x, yProgress);
 
 		targetShipPosition = reticleWorldPosition;
 
