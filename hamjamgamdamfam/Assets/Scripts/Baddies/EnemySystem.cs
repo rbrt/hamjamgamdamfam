@@ -87,7 +87,7 @@ public class EnemySystem : MonoBehaviour
 			var enemy = Instantiate(enemyGrouping[0]).GetComponent<Enemy>();
 			enemy.SetPath(path);
 			enemies.Add(enemy);
-			(enemy as BasicEnemy).SetBonuses(enemyBonusSpeed, enemyBonusRateOfFire, enemyBonusPower, enemyBonusBullets)
+			(enemy as BasicEnemy).SetBonuses(enemyBonusSpeed, enemyBonusRateOfFire, enemyBonusPower, enemyBonusBullets);
 
 			yield return new WaitForSeconds(enemySpawnInterval);
 		}
