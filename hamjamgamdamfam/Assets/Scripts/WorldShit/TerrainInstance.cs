@@ -12,6 +12,8 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     float damageTimer;
     public int Points = 100;
 
+    public GameObject deathEffect;
+
     Color color;
 
 	public override void Init( EntitieData data){ 
@@ -77,7 +79,7 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 
             if (Health <= 0)
             {
-                Destroyed = true;
+                DestroyTerrain();
             }
 		}
 	}
@@ -92,7 +94,16 @@ public class TerrainInstance :  Entitie, ITakesDamage {
             ScoreManager.Instance.IncreaseScore( Points);
             AudioController.Instance.CollectRing();
             StartCoroutine(DestroyCollectableCoroutine());
-        } else{
+        } else {
+            GameObject ins = Instantiate(deathEffect);
+            ins.transform.position = this.transform.position;
+            ins.transform.localScale = this.transform.localScale;
+            ins.transform.rotation = this.transform.rotation;
+
+            var ps = ins.GetComponent<ParticleSystem>();
+            var sh = ps.shape;
+            sh.mesh = meshFilter.mesh;
+
             Destroyed = true;
         }
     }

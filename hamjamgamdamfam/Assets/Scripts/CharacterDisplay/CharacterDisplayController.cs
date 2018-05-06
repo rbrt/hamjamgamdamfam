@@ -46,7 +46,8 @@ public class CharacterDisplayController : MonoBehaviour
 	string[] deathDialogue = new string[]
 	{
 		"Badger???...Badger???\t.....",
-		"Nooooo!!!!!\tAhhhhh!!!!"
+		"Nooooo!!!!!\tAhhhhh!!!!",
+        "For a peered into oblivion!!!"
 	};
 
 	void Awake()

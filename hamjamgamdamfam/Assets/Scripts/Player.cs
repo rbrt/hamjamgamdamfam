@@ -37,7 +37,6 @@ public class Player : MonoBehaviour, ITakesDamage {
             } else
             {
                 TakeDamage(Globals.Instance.EnviromentDamage);
-
             }
 		}
 	}
