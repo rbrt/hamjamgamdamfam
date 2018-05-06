@@ -63,6 +63,7 @@ public class InfoDisplay : MonoBehaviour
 	public void PlayerDied()
 	{
 		headingText.text = "You Died!";
+		displayingDeathScreen = true;
 		displayAnimator.SetBool(displayBool, true);
 		TerrainSpawner.Instance.paused = true;
 		EnemySystem.Instance.paused = true;
