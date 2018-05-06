@@ -89,6 +89,8 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     {
         if ( Collectable)
         {
+            CharacterDisplayController.Instance.PlayPositiveDialogue();
+            
             ScoreManager.Instance.IncreaseScore( Points);
             AudioController.Instance.CollectRing();
             StartCoroutine(DestroyCollectableCoroutine());

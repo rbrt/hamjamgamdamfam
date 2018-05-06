@@ -24,10 +24,12 @@ public class CharacterDisplayController : MonoBehaviour
 	string showDialogueBool = "show";
 
 	bool displaying = false;
+	float lastDialogueTime = 0;
+	float currentDialogueInterval = 7;
 
 	string[] positiveDialogue = new string[]
 	{
-		"Great work!\tI'm the best!",
+		"Great work!\tI always win!",
 		"Nice shot!\tRoger that!",
 		"Don't get cocky!\t.....",
 		"Another great job!\tOf course!"
@@ -65,6 +67,14 @@ public class CharacterDisplayController : MonoBehaviour
 
 	public void PlayPositiveDialogue()
 	{
+		if (Time.time - lastDialogueTime < currentDialogueInterval)
+		{
+			return;
+		}
+
+		currentDialogueInterval = Random.Range(10, 20);
+		lastDialogueTime = Time.time;
+
 		int index = (int)(Random.value * positiveDialogue.Length); 
 		var airBadger = positiveDialogue[index].Split('\t')[1];
 		var chiefBadger = positiveDialogue[index].Split('\t')[0];
@@ -74,6 +84,14 @@ public class CharacterDisplayController : MonoBehaviour
 
 	public void PlayNegativeDialogue()
 	{
+		if (Time.time - lastDialogueTime < currentDialogueInterval)
+		{
+			return;
+		}
+
+		currentDialogueInterval = Random.Range(10, 20);
+		lastDialogueTime = Time.time;
+
 		int index = (int)(Random.value * negativeDialogue.Length); 
 		var airBadger = negativeDialogue[index].Split('\t')[1];
 		var chiefBadger = negativeDialogue[index].Split('\t')[0];
@@ -81,7 +99,7 @@ public class CharacterDisplayController : MonoBehaviour
 		PlayDialogue(airBadger, chiefBadger);
 	}
 
-	public void PlayDeathialogue()
+	public void PlayDeathDialogue()
 	{
 		int index = (int)(Random.value * deathDialogue.Length); 
 		var airBadger = deathDialogue[index].Split('\t')[1];
@@ -92,7 +110,7 @@ public class CharacterDisplayController : MonoBehaviour
 
 	void PlayDialogue(string airBadgerLine, string chiefBadgerLine)
 	{
-		if (displaying)
+		if (displaying || Player.Instance.GetDead())
 		{
 			return;
 		}

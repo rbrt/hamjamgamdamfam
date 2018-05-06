@@ -6,6 +6,15 @@ using System.Linq;
 public class EnemySystem : MonoBehaviour 
 {
 
+	static EnemySystem instance;
+	public static EnemySystem Instance
+	{
+		get
+		{
+			return instance;
+		}
+	}
+
 	[SerializeField] protected Enemy[] enemyGrouping;
 
 	WaitForSeconds waitForSpawn;	
@@ -23,6 +32,14 @@ public class EnemySystem : MonoBehaviour
 	float enemyBonusSpeed = 0;
 	float enemyBonusRateOfFire = 0;
 	float enemyBonusBullets = 0;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+	}
 
 	void Update()
 	{
@@ -77,6 +94,11 @@ public class EnemySystem : MonoBehaviour
 			enemyBonusPower += 5;
 			enemyBonusBullets += 1;
 		}
+	}
+
+	public int GetWaveCount()
+	{
+		return currentWave;
 	}
 
 	IEnumerator SpawnEnemies()
