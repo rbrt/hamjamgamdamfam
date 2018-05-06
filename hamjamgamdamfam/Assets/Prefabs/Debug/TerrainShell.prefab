@@ -128,3 +128,5 @@ MonoBehaviour:
   meshRenderer: {fileID: 23911747152684368}
   Destroyed: 0
   Destructable: 0
+  Health: 0
+  damageTime: 0.75
