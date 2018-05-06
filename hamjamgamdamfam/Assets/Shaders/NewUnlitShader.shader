@@ -1,10 +1,8 @@
-﻿Shader "Unlit/VerticalGradient"
+﻿Shader "Unlit/NewUnlitShader"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Color1 ("Color1", Color) = (0,0,0,0)
-		_Color2 ("Color2", Color) = (0,0,0,0)
 	}
 	SubShader
 	{
@@ -36,8 +34,6 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-			half4 _Color1;
-			half4 _Color2;
 			
 			v2f vert (appdata v)
 			{
@@ -50,9 +46,11 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = lerp(_Color1, _Color2, i.uv.y);
+				// sample the texture
+				fixed4 col = tex2D(_MainTex, i.uv);
+				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
-				return lerp(_Color1, _Color2, i.uv.y);
+				return col;
 			}
 			ENDCG
 		}
