@@ -7,7 +7,7 @@ public class TerrainData : EntitieData {
 
 	public bool Destructable;
     public bool Collectable; //to lazy to dupe the manager. 
-
+    
 	public int health = 500;
 
 	public Vector3 Scale = Vector3.one;
