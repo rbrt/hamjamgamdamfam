@@ -10,6 +10,7 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     Coroutine damageFlashCoroutine;
     public float damageTime = 0.75f;
     float damageTimer;
+    public int Points = 100;
 
     Color color;
 
@@ -80,6 +81,8 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     {
         if ( Collectable)
         {
+            ScoreManager.Instance.IncreaseScore( Points);
+            AudioController.Instance.CollectRing();
             StartCoroutine(DestroyCollectableCoroutine());
         } else{
             Destroyed = true;

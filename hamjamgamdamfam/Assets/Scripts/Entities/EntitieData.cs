@@ -5,6 +5,6 @@ using UnityEngine;
 public class EntitieData : ScriptableObject
 {
 	public Mesh mesh;
-	public Material material;	
-
+	public Material material;
+    public Mesh overrideCollider;
 }
