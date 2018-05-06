@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InfoDisplay : MonoBehaviour 
 {
@@ -76,6 +77,6 @@ public class InfoDisplay : MonoBehaviour
 
 	void DismissDeath()
 	{
-
+		SceneManager.LoadScene("TitleScreen");
 	}
 }
