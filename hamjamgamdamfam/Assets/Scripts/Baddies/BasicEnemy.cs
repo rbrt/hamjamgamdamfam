@@ -11,6 +11,7 @@ public class BasicEnemy : Enemy
 	float bulletSpeed = 20;
 
 	int currentPathNode = 0;
+	int bullets = 5;
 
 	void Start()
 	{
@@ -19,7 +20,19 @@ public class BasicEnemy : Enemy
 		lastShot = Random.Range( 0f, rateOfFire);
 	}
 
+	public void SetBonuses(float bonusSpeed, float bonusRateOfFire, float bonusPower, float bonusBullets)
+	{
+		moveSpeed += bonusSpeed;
+		rateOfFire += bonusRateOfFire;
+		power += bonusPower;
+		bullets += (int)bonusBullets;
 
+		if (rateOfFire < .25f)
+		{
+			rateOfFire = .25f;
+		}
+	}
+	
 	public override void ManualUpdate()
 	{
 		if (currentPathNode >= pathPoints.Length)
@@ -49,7 +62,7 @@ public class BasicEnemy : Enemy
 
 	IEnumerator ShootBurst()
 	{
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < bullets; i++)
 		{
 			ShootBullet();
 			yield return new WaitForSeconds(.02f);

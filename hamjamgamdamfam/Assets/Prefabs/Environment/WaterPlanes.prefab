@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29c0bca6ce1e4decaaa845b18557ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalingFactor: 5
+  scalingFactor: 1
   length: 1100
   width: 1200
   resX: 100
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeA: {fileID: 1338440150523852}
   planeB: {fileID: 1278334346544250}
-  scrollSpeed: 5
+  scrollSpeed: 1.2
 --- !u!114 &114751134922428866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29c0bca6ce1e4decaaa845b18557ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalingFactor: 5
+  scalingFactor: 1
   length: 1100
   width: 1200
   resX: 100

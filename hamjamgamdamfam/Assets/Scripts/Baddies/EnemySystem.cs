@@ -13,44 +13,83 @@ public class EnemySystem : MonoBehaviour
 
 	List<Enemy> enemies = new List<Enemy>();
 
-	void Start()
-	{
-		waitForSpawn = new WaitForSeconds(enemySpawnInterval);
+	int currentWave = 1;
+	int waves = 4;
+	int waveSplitTime = 6;
+	float lastWaveSpawnTime = 0;
+	int enemiesInWave = 7;
 
-		StartCoroutine((SpawnEnemies()));
-	}
+	float enemyBonusPower = 0;
+	float enemyBonusSpeed = 0;
+	float enemyBonusRateOfFire = 0;
+	float enemyBonusBullets = 0;
 
 	void Update()
 	{
-		bool anyNull = false;
-		foreach (var enemy in enemies)
+		bool inWaveCurrently = waves > 0 || enemies.Count > 0;
+
+		if (inWaveCurrently)
 		{
-			if (enemy == null)
+			if (Time.time - lastWaveSpawnTime > waveSplitTime &&
+				waves > 0)
 			{
-				anyNull = true;
+				lastWaveSpawnTime = Time.time;
+				waves--;
+				StartCoroutine((SpawnEnemies()));
 			}
-			else
+
+			bool anyNull = false;
+			foreach (var enemy in enemies)
 			{
-				enemy.ManualUpdate();
+				if (enemy == null)
+				{
+					anyNull = true;
+				}
+				else
+				{
+					enemy.ManualUpdate();
+				}
+			}
+
+			if (anyNull)
+			{
+				enemies = enemies.Where(x => x != null).ToList();
 			}
 		}
-
-		if (anyNull)
+		else
 		{
-			enemies = enemies.Where(x => x != null).ToList();
+			AdvanceWave();
+		}
+	}
+
+	void AdvanceWave()
+	{
+		currentWave++;
+		waves = 4 + currentWave;
+		if (currentWave % 4 == 0)
+		{
+			enemiesInWave += 4;
+		}
+		if (currentWave % 6 == 0)
+		{
+			enemyBonusSpeed += .05f;
+			enemyBonusRateOfFire -= .25f;
+			enemyBonusPower += 5;
+			enemyBonusBullets += 1;
 		}
 	}
 
 	IEnumerator SpawnEnemies()
 	{
 		var path = GeneratePath();
-		for (int i = 0; i < enemyGrouping.Length; i++)
+		for (int i = 0; i < enemiesInWave; i++)
 		{
-			var enemy = Instantiate(enemyGrouping[i]).GetComponent<Enemy>();
+			var enemy = Instantiate(enemyGrouping[0]).GetComponent<Enemy>();
 			enemy.SetPath(path);
 			enemies.Add(enemy);
+			(enemy as BasicEnemy).SetBonuses(enemyBonusSpeed, enemyBonusRateOfFire, enemyBonusPower, enemyBonusBullets);
 
-			yield return waitForSpawn;
+			yield return new WaitForSeconds(enemySpawnInterval);
 		}
 	}
 	

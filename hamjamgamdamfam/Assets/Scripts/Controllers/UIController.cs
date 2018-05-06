@@ -47,8 +47,8 @@ public class UIController : MonoBehaviour
 	{
 		cursorPosition = mousePosition;
 
-		cursorPosition.x = Mathf.Clamp(cursorPosition.x, .1f * Screen.width, .9f * Screen.width);
-		cursorPosition.y = Mathf.Clamp(cursorPosition.y, .2f * Screen.height, .8f * Screen.height);
+		cursorPosition.x = Mathf.Clamp(cursorPosition.x, .2f * Screen.width, .8f * Screen.width);
+		cursorPosition.y = Mathf.Clamp(cursorPosition.y, .35f * Screen.height, .7f * Screen.height);
 
 		viewportPosition = new Vector2(cursorPosition.x / Screen.width, cursorPosition.y / Screen.height);
 		Vector2 screenPosition = new Vector2(

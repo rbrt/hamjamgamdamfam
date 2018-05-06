@@ -22,6 +22,7 @@ public class AudioController : MonoBehaviour
 	[SerializeField] protected AudioSource enemyHitSource;
 	[SerializeField] protected AudioSource enemyDeathSource;
 	[SerializeField] protected AudioSource enemyShotSource;
+	[SerializeField] protected AudioSource collectRingSource;
 
 	void Awake()
 	{
@@ -91,6 +92,14 @@ public class AudioController : MonoBehaviour
 		if (!enemyShotSource.isPlaying)
 		{
 			enemyShotSource.Play();
+		}
+	}
+
+	public void CollectRing()
+	{
+		if (collectRingSource.isPlaying)
+		{
+			collectRingSource.Play();
 		}
 	}
 }
