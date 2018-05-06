@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Globals : MonoBehaviour {
 	
-	public float StaticSpeed = 10f;
+	public float EnemySpeed = 10f;
 	public float BulletSpeed = 35;
     public int BaseLaserDamage = 50;
+    public float EmulatedMovementSpeed = 120;
 
 	public int EnviromentDamage = 20;
 	

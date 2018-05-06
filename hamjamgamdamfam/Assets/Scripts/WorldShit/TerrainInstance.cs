@@ -34,8 +34,8 @@ public class TerrainInstance :  Entitie, ITakesDamage {
 	}
 
 	public float Speed { 
-		get { 
-			return Globals.Instance.StaticSpeed;
+		get {
+            return Globals.Instance.EmulatedMovementSpeed;
 		}
 	}
 

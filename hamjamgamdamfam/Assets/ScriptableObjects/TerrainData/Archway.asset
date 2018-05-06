@@ -12,10 +12,43 @@ MonoBehaviour:
   m_Name: Archway
   m_EditorClassIdentifier: 
   mesh: {fileID: 4300000, guid: 92f06f6ea1252fe40878e2a225ebd62a, type: 3}
-  material: {fileID: 2100000, guid: 3768290bc8a374124920d852c67ef5dd, type: 2}
+  material: {fileID: 2100000, guid: 25f880f4471494ee9845f6954c3ee372, type: 2}
   Destructable: 1
   health: 100
   Scale: {x: 1, y: 1, z: 1}
   ScaleDelta: {x: 0.1, y: 0.1, z: 0.1}
   SpawnHeight: -0.001
   SpawnHeightDelta: 0.001
+  XDistrobution:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: -1
+      inSlope: 3.1467466
+      outSlope: 3.1467466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.1250091
+    - serializedVersion: 3
+      time: -0.006720902
+      value: -0.006720841
+      inSlope: -0.05067092
+      outSlope: -0.05067092
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3003344
+    - serializedVersion: 3
+      time: 1.0049744
+      value: 1
+      inSlope: 3.0969546
+      outSlope: 3.0969546
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.070444986
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

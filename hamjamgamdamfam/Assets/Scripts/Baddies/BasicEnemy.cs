@@ -32,7 +32,7 @@ public class BasicEnemy : Enemy
 		{
 			transform.position = Vector3.MoveTowards(transform.position, 
 													 pathPoints[currentPathNode], 
-													 moveSpeed * Globals.Instance.StaticSpeed * Time.deltaTime);
+													 moveSpeed * Globals.Instance.EnemySpeed * Time.deltaTime);
 		}
 		else
 		{

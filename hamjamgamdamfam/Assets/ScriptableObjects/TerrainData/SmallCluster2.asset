@@ -15,7 +15,40 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 3768290bc8a374124920d852c67ef5dd, type: 2}
   Destructable: 1
   health: 100
-  Scale: {x: 1, y: 1, z: 1}
-  ScaleDelta: {x: 0.1, y: 0.1, z: 0.1}
-  SpawnHeight: -0.001
+  Scale: {x: 7, y: 7, z: 7}
+  ScaleDelta: {x: 7, y: 7, z: 7}
+  SpawnHeight: -50
   SpawnHeightDelta: 0.001
+  XDistrobution:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: -1
+      inSlope: 0.5258969
+      outSlope: 0.5258969
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.16016741
+    - serializedVersion: 3
+      time: -0.006720902
+      value: -0.006720841
+      inSlope: 2.2096248
+      outSlope: 2.2096248
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06472743
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.45577765
+      outSlope: 0.45577765
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.112877734
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -54,8 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MosesValue: 2
   SpawnRatePerSecond: 10
-  minDistance: 150
-  range: 50
+  minDistance: 1000
+  range: 200
   TerrainPrefab: {fileID: 1908786081100154, guid: d1cd31a2ace4048d98d11cf0cf0dddfc,
     type: 2}
   clusterSize: 70
@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d75a1202abd31470aac5b827b18712fd, type: 2}
   - {fileID: 11400000, guid: d145007c264d94e29927b52aca19bdc4, type: 2}
   - {fileID: 11400000, guid: 20edd435a7db446cc90dc56a316f38b7, type: 2}
+  - {fileID: 11400000, guid: 5e8b9e13487d14f2da5ebcb9e5622a64, type: 2}
 --- !u!114 &114916627159220290
 MonoBehaviour:
   m_ObjectHideFlags: 1
