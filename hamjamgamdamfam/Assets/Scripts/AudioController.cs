@@ -6,6 +6,7 @@ public class AudioController : MonoBehaviour
 {
 	[SerializeField] protected AudioSource playerWarningSource;
 	[SerializeField] protected AudioSource playerHurtSource;
+	[SerializeField] protected AudioSource playerDeathSource;
 
 	public void PlayWarningNoise()
 	{
@@ -23,5 +24,18 @@ public class AudioController : MonoBehaviour
 	public void PlayHurtSound()
 	{
 		playerHurtSource.Play();
+	}
+
+	public void PlayDeathNoise()
+	{
+		if (!playerDeathSource.isPlaying)
+		{
+			playerDeathSource.Play();
+		}
+	}
+
+	public void StopDeathNoise()
+	{
+		playerDeathSource.Stop();
 	}
 }

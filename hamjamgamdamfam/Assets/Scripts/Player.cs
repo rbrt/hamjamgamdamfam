@@ -55,8 +55,8 @@ public class Player : MonoBehaviour, ITakesDamage {
 	IEnumerator DeathCoroutine()
 	{
 		audioController.StopWarningNoise();
-		//Do Death
-		Debug.Log( "you died");
+		audioController.PlayDeathNoise();
+		GetComponent<PlayerController>().SetDead();
 		yield return null;
 
 	}

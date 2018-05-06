@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 	float cursorFollowSpeedRampUp = .35f;
 	float cursorFollowSpeedRampDown = .4f;
 
+	bool dead = false;
+
 	public ControllerInterface.ControllerTypes InterfaceType
 	{
 		get
@@ -72,6 +74,11 @@ public class PlayerController : MonoBehaviour
 
 	void Update () 
 	{
+		if (dead)
+		{
+			return;
+		}
+
 		HandleReticle();
 		MovePlayer();
 		HandleFiring();
@@ -167,5 +174,10 @@ public class PlayerController : MonoBehaviour
 	void HandleReticle()
 	{
 		UIController.Instance.SetTargetReticlePosition(Input.mousePosition);
+	}
+
+	public void SetDead()
+	{
+		dead = true;
 	}
 }
