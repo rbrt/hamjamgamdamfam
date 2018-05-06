@@ -5,7 +5,7 @@ using UnityEngine;
 public class Entitie : MonoBehaviour {
 
 	public MeshFilter meshFilter;
-	public Renderer meshRenderer;
+	public MeshRenderer meshRenderer;
 	public bool Destroyed;
 	
 	public virtual void ManualUpdate()

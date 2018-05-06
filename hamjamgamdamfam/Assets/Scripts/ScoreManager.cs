@@ -28,7 +28,6 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-
     public void IncreaseScore(int points)
     {
         score += points;

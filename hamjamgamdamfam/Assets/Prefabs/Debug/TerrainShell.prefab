@@ -134,3 +134,5 @@ MonoBehaviour:
   Health: 0
   damageTime: 0.75
   Points: 100
+  deathEffect: {fileID: 1073031007945416, guid: 65faeaa3509a12f4aadccb6bf112db13,
+    type: 2}
