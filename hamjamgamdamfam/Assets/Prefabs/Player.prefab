@@ -2091,6 +2091,7 @@ MonoBehaviour:
   activeWeapon: {fileID: 114763449463977858}
   viewCamera: {fileID: 20194335320042536}
   visualizationCube: {fileID: 4703849906112208}
+  playerHurtClip: {fileID: 8300000, guid: bb9633dbd272e47de84ef69aa16fffba, type: 3}
   screenYRange: {x: 0.25, y: 2.96}
   screenXRange: {x: -2.81, y: 4.49}
   playerXRange: {x: -5, y: 5}

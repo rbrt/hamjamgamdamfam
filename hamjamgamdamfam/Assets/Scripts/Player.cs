@@ -7,6 +7,8 @@ public class Player : MonoBehaviour, ITakesDamage {
 	public static Player Instance; 
 
 	[SerializeField] protected int Health;
+	[SerializeField] protected AudioController audioController;
+	[SerializeField] protected AudioClip playerHurtClip;
 	
 	public List<GameObject> ShipBits;
 
@@ -31,7 +33,16 @@ public class Player : MonoBehaviour, ITakesDamage {
 	public void TakeDamage(int damage)
 	{
 		Health -= damage;
-		UIController.Instance.AdjustHealthForDamage(Health / beginningHealth);
+		var healthPercentage = Health / beginningHealth;
+		UIController.Instance.AdjustHealthForDamage(healthPercentage);
+		
+		if (healthPercentage <= .5f)
+		{
+			audioController.PlayWarningNoise();
+		}
+
+		audioController.PlayHurtSound();
+
 		if( Health > 0 )
 		{
 			StartCoroutine( TakeDamageCoroutine());
@@ -43,6 +54,7 @@ public class Player : MonoBehaviour, ITakesDamage {
 	
 	IEnumerator DeathCoroutine()
 	{
+		audioController.StopWarningNoise();
 		//Do Death
 		Debug.Log( "you died");
 		yield return null;
