@@ -8,7 +8,6 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 	[SerializeField] protected int Health;
 	[SerializeField] protected AudioController audioController;
-	[SerializeField] protected AudioClip playerHurtClip;
 	
 	public List<GameObject> ShipBits;
 
