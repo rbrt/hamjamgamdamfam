@@ -55,6 +55,14 @@ public class CharacterDisplayController : MonoBehaviour
 		}
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			PlayPositiveDialogue();
+		}
+	}
+
 	public void PlayPositiveDialogue()
 	{
 		int index = (int)(Random.value * positiveDialogue.Length); 
@@ -118,6 +126,8 @@ public class CharacterDisplayController : MonoBehaviour
 
 		airBadgerParent.SetActive(false);
 		chiefBadgerParent.SetActive(false);
+
+		dialogueText.text = "";
 
 		displaying = false;
 	}

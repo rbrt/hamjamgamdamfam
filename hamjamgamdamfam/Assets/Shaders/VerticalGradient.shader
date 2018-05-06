@@ -50,6 +50,8 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
+				fixed4 col = lerp(_Color1, _Color2, i.uv.y);
+				UNITY_APPLY_FOG(i.fogCoord, col);
 				return lerp(_Color1, _Color2, i.uv.y);
 			}
 			ENDCG
