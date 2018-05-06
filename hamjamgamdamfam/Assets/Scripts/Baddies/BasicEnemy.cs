@@ -94,6 +94,8 @@ public class BasicEnemy : Enemy
 
 	public override void TakeDamage(int damage)
 	{
+		CharacterDisplayController.Instance.PlayPositiveDialogue();
+		
 		AudioController.Instance.PlayEnemyHit();
 		health -= damage;
 		if( health < 0 )

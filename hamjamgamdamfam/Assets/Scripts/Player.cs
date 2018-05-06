@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 	float beginningHealth;
 
+	bool dead = false;
+
 	void Awake()
 	{
 		Instance = this;
@@ -60,10 +62,18 @@ public class Player : MonoBehaviour, ITakesDamage {
 
 		if( Health > 0 )
 		{
+			CharacterDisplayController.Instance.PlayNegativeDialogue();
 			StartCoroutine( TakeDamageCoroutine());
-		} else
+		}
+		else
 		{
-			StartCoroutine( DeathCoroutine());
+			if (!dead)
+			{
+				CharacterDisplayController.Instance.PlayDeathDialogue();
+			}
+			dead = true;
+
+			StartCoroutine(DeathCoroutine());
 		}
 	}
 	
