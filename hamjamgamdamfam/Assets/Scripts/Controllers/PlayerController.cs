@@ -121,8 +121,8 @@ public class PlayerController : MonoBehaviour
 		var reticleViewportPoint = UIController.Instance.GetReticleViewportPosition();
 		targetShipLookPosition = viewCamera.ViewportToWorldPoint(new Vector3(reticleViewportPoint.x, reticleViewportPoint.y, 15));
 
-		var targetRotation = Quaternion.LookRotation(targetShipLookPosition - playerMesh.transform.position, Vector3.up);
-		playerMesh.transform.rotation = Quaternion.RotateTowards(playerMesh.transform.rotation, targetRotation, 150 * Time.deltaTime);
+		var targetRotation = Quaternion.LookRotation(targetShipLookPosition - playerShipMesh.transform.position, Vector3.up);
+		playerShipMesh.transform.rotation = Quaternion.RotateTowards(playerShipMesh.transform.rotation, targetRotation, 150 * Time.deltaTime);
 
 		var rollIntensity = Vector3.Distance(playerMesh.transform.position, targetShipPosition) / 7f;
 		if (playerMesh.transform.position.x < targetShipPosition.x)
@@ -130,9 +130,11 @@ public class PlayerController : MonoBehaviour
 			rollIntensity *= -1;
 		}
 
-		playerMesh.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rollIntensity * 45));
-		rightEngine.transform.localRotation = Quaternion.Euler(new Vector3(rollIntensity * 80, 0, 0));
-		leftEngine.transform.localRotation = Quaternion.Euler(new Vector3(-rollIntensity * 80, 0, 0));
+		// Barrel roll mode
+		//playerMesh.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, rollIntensity * 45));
+		playerMesh.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rollIntensity * 90));
+		rightEngine.transform.localRotation = Quaternion.Euler(new Vector3(rollIntensity * 30, 0, 0));
+		leftEngine.transform.localRotation = Quaternion.Euler(new Vector3(-rollIntensity * 30, 0, 0));
 
 		visualizationCube.position = targetShipLookPosition;
 	}
