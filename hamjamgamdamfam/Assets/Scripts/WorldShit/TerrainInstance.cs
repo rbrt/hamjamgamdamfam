@@ -11,7 +11,8 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     public float damageTime = 0.75f;
     float damageTimer;
     public int Points = 100;
-
+    public AnimationCurve ringShrink;
+    public float ringshrinktime = 0.75f;
     public GameObject deathEffect;
 
     Color color;
@@ -111,11 +112,11 @@ public class TerrainInstance :  Entitie, ITakesDamage {
     IEnumerator DestroyCollectableCoroutine()
     {
         float time = 0;
-        float shrinkTime = 1.5f;
+
         Vector3 origSize = transform.localScale;
-        while (time < shrinkTime) 
+        while (time < ringshrinktime) 
         {
-            transform.localScale = Vector3.Lerp(origSize, Vector3.zero, time / shrinkTime);
+            transform.localScale = Vector3.Lerp(origSize, Vector3.zero, ringShrink.Evaluate(time / ringshrinktime));
             time += Time.deltaTime;
             transform.position = Player.Instance.transform.position;
             yield return null;

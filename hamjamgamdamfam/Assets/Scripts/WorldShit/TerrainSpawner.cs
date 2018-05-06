@@ -84,8 +84,9 @@ public class TerrainSpawner : MonoBehaviour
         {
             return;
         }
-
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, prefab.Collectable ? 90 : Random.value * 360, 0));
+        // I'm so sorry
+        Quaternion rotation = Quaternion.Euler(
+            new Vector3(0f, prefab.Collectable ? 90 : Random.value * 360f, 0f));
 
         position.y = prefab.SpawnHeight + Random.Range(0f, prefab.SpawnHeightDelta);
         

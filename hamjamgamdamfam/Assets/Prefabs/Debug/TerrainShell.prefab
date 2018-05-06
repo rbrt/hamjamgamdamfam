@@ -134,5 +134,39 @@ MonoBehaviour:
   Health: 0
   damageTime: 0.75
   Points: 100
+  ringShrink:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.001625061
+      value: 0.003967285
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.53609115
+      value: 0.8967691
+      inSlope: 0.9414414
+      outSlope: 0.9414414
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.033895407
+      outSlope: -0.033895407
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.116883114
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ringshrinktime: 0.75
   deathEffect: {fileID: 1073031007945416, guid: 65faeaa3509a12f4aadccb6bf112db13,
     type: 2}

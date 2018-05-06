@@ -11,7 +11,7 @@ public class BasicEnemy : Enemy
 	float bulletSpeed = 20;
 
 	int currentPathNode = 0;
-	int bullets = 5;
+	int bullets = 3;
 
     public GameObject DeadEffect;
 	int points = 10;
@@ -21,6 +21,7 @@ public class BasicEnemy : Enemy
 		transform.position = pathPoints[currentPathNode];
 		currentPathNode++;
 		lastShot = Random.Range( 0f, rateOfFire);
+
 	}
 
 	public void SetBonuses(float bonusSpeed, float bonusRateOfFire, float bonusPower, float bonusBullets)
@@ -98,12 +99,15 @@ public class BasicEnemy : Enemy
 		CharacterDisplayController.Instance.PlayPositiveDialogue();
 		
 		AudioController.Instance.PlayEnemyHit();
+
+     
 		health -= damage;
 		if( health < 0 )
 		{
 			Die();
 		}
 	}
+  
 
 	void Die()
 	{

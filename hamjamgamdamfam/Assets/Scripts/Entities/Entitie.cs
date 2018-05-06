@@ -7,7 +7,7 @@ public class Entitie : MonoBehaviour {
 	public MeshFilter meshFilter;
 	public MeshRenderer meshRenderer;
 	public bool Destroyed;
-	
+    	
 	public virtual void ManualUpdate()
 	{
 	}
