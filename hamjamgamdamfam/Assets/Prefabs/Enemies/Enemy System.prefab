@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGrouping:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}
+  - {fileID: 114984581962707366, guid: 090d68f0d4a0d466cbc2931f481ff972, type: 2}

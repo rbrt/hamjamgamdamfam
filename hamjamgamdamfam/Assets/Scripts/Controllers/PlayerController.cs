@@ -130,11 +130,9 @@ public class PlayerController : MonoBehaviour
 			rollIntensity *= -1;
 		}
 
-		Debug.Log(rollIntensity);
-
 		playerMesh.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rollIntensity * 45));
-		rightEngine.transform.localRotation = Quaternion.Euler(new Vector3(rollIntensity * 25, 0, 0));
-		leftEngine.transform.localRotation = Quaternion.Euler(new Vector3(-rollIntensity * 25, 0, 0));
+		rightEngine.transform.localRotation = Quaternion.Euler(new Vector3(rollIntensity * 80, 0, 0));
+		leftEngine.transform.localRotation = Quaternion.Euler(new Vector3(-rollIntensity * 80, 0, 0));
 
 		visualizationCube.position = targetShipLookPosition;
 	}
