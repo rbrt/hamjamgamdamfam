@@ -210,22 +210,21 @@ public class PlayerController : MonoBehaviour
             {
                 if (enemy != null && TargetInReticle(enemy.transform))
                 {
-                    Debug.Log("New lock on");
+                    // Establish lock on
                     currentLockTarget = enemy.transform;
                     break;
                 }
             }
-            Debug.Log("No lock on yeeeah");
         }
         else
         {
             if (TargetInReticle(currentLockTarget))
             {
-                Debug.Log("Locked on");
+                // Maintain lock
             }
             else
             {
-                Debug.Log("No lock on");
+                // Break lock
                 currentLockTarget = null;
             }
         }
