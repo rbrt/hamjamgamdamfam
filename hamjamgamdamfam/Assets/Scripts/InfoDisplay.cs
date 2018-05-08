@@ -50,7 +50,7 @@ public class InfoDisplay : MonoBehaviour
 				DismissWave();
 			}
 		}
-		else if (displayingDeathScreen)
+		if (displayingDeathScreen)
 		{
 			if (Input.GetKeyDown(KeyCode.Space))
 			{

@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
 	[SerializeField] protected Image reticleImage;
 	[SerializeField] protected Camera worldCamera;
 	[SerializeField] protected Image healthFill;
+    [SerializeField] protected Image helperImage;
 
 	RectTransform canvasRect;
 	RectTransform reticleRect;
@@ -71,6 +72,20 @@ public class UIController : MonoBehaviour
 	{
 		return worldCamera.WorldToViewportPoint(reticleRect.position);
 	}
+
+    public bool TransformInReticle(Transform target)
+    {
+        var viewportPosition = worldCamera.WorldToViewportPoint(target.position);
+        var canvasPosition = new Vector2(
+            ((viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+            ((viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f))
+        );
+
+        helperImage.rectTransform.anchoredPosition = canvasPosition;
+
+        var convertedPoint = reticleRect.transform.InverseTransformPoint(helperImage.transform.position);
+        return reticleRect.rect.Contains(convertedPoint);
+    }
 
 	public void AdjustHealthForDamage(float percent)
 	{

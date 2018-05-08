@@ -112,6 +112,11 @@ public class EnemySystem : MonoBehaviour
 		return currentWave;
 	}
 
+    public List<Enemy> GetEnemies()
+    {
+        return enemies;
+    }
+
 	IEnumerator SpawnEnemies()
 	{
 		spawning = true;

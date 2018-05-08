@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour
 	public Vector2 playerYRange = new Vector2(-0.75f, 2.75f);
 
 	bool primaryFiring = false;
+    bool secondaryFiring = false;
 
-	Vector3 targetShipPosition;
+    Vector3 targetShipPosition;
 	Vector3 targetShipLookPosition;
 	float cursorFollowSpeed = 0f;
 	float maxCursorFollowSpeed = 12f;
@@ -37,6 +38,9 @@ public class PlayerController : MonoBehaviour
 	float cursorFollowSpeedRampDown = .4f;
 
 	bool dead = false;
+    bool lockedOn = false;
+
+    Transform currentLockTarget;
 
 	public ControllerInterface.ControllerTypes InterfaceType
 	{
@@ -167,10 +171,24 @@ public class PlayerController : MonoBehaviour
 			primaryFiring = false;
 		}
 
-		if (primaryFiring)
-		{
-			FirePrimaryWeapon();
-		}
+        if (controller.GetSecondaryFireButtonDown())
+        {
+            secondaryFiring = true;
+        }
+
+        if (controller.GetSecondaryFireButtonUp())
+        {
+            secondaryFiring = false;
+        }
+
+        if (secondaryFiring)
+        {
+            AssessTargetLock();
+        }
+        else if (primaryFiring)
+        {
+            FirePrimaryWeapon();
+        }
 	}
 
 	void FirePrimaryWeapon()
@@ -182,6 +200,45 @@ public class PlayerController : MonoBehaviour
 	{
 		UIController.Instance.SetTargetReticlePosition(Input.mousePosition);
 	}
+
+    void AssessTargetLock()
+    {
+        if (currentLockTarget == null)
+        {
+            var enemies = EnemySystem.Instance.GetEnemies();
+            foreach (var enemy in enemies)
+            {
+                if (enemy != null && TargetInReticle(enemy.transform))
+                {
+                    Debug.Log("New lock on");
+                    currentLockTarget = enemy.transform;
+                    break;
+                }
+            }
+            Debug.Log("No lock on yeeeah");
+        }
+        else
+        {
+            if (TargetInReticle(currentLockTarget))
+            {
+                Debug.Log("Locked on");
+            }
+            else
+            {
+                Debug.Log("No lock on");
+                currentLockTarget = null;
+            }
+        }
+    }
+
+    bool TargetInReticle(Transform target)
+    {
+        if (UIController.Instance.TransformInReticle(target))
+        {
+            return true;
+        }
+        return false;
+    }
 
 	public void SetDead()
 	{
