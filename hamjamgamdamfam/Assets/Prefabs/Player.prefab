@@ -352,6 +352,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4432981537533702}
+  - component: {fileID: 114027312537990074}
   m_Layer: 0
   m_Name: Targeting
   m_TagString: Untagged
@@ -489,7 +490,7 @@ Transform:
   m_LocalScale: {x: 24.016996, y: 24.016996, z: 24.016996}
   m_Children: []
   m_Father: {fileID: 4432981537533702}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4243911304211604
 Transform:
@@ -588,7 +589,7 @@ Transform:
   m_LocalScale: {x: 24.016993, y: 24.017002, z: 24.017002}
   m_Children: []
   m_Father: {fileID: 4432981537533702}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4396163040389160
 Transform:
@@ -614,7 +615,7 @@ Transform:
   m_LocalScale: {x: 24.016994, y: 24.017004, z: 24.017004}
   m_Children: []
   m_Father: {fileID: 4432981537533702}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4415356644209656
 Transform:
@@ -640,9 +641,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.30500004, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
+  - {fileID: 4239744769256810}
   - {fileID: 4360518140154766}
   - {fileID: 4399839742746920}
-  - {fileID: 4239744769256810}
   m_Father: {fileID: 4913900612821960}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1163,6 +1164,22 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051691925134162}
   m_Enabled: 1
+--- !u!114 &114027312537990074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683081199011308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf425e7941f7b46ad9bb354b72a156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticleFirst: {fileID: 1288587382157588}
+  reticleSecond: {fileID: 1048822567501920}
+  reticleFinal: {fileID: 1856042625005490}
+  lockColor: {r: 0, g: 1, b: 0.07469654, a: 1}
+  lockTime: 1.5
 --- !u!114 &114258810368990476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1238,6 +1255,7 @@ MonoBehaviour:
   rightEngine: {fileID: 1128252291681354}
   activeWeapon: {fileID: 114763449463977858}
   viewCamera: {fileID: 20194335320042536}
+  lockOn: {fileID: 114027312537990074}
   visualizationCube: {fileID: 4703849906112208}
   screenYRange: {x: 0.25, y: 2.96}
   screenXRange: {x: -2.81, y: 4.49}

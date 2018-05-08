@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] protected Weapon activeWeapon;
 	[SerializeField] protected Camera viewCamera;
 
+    [SerializeField] protected LockOn lockOn;
+
 	[SerializeField] protected Transform visualizationCube;
 
 	ControllerInterface controller;
@@ -178,6 +180,8 @@ public class PlayerController : MonoBehaviour
 
         if (controller.GetSecondaryFireButtonUp())
         {
+            currentLockTarget = null;
+            lockOn.DisableLock();
             secondaryFiring = false;
         }
 
@@ -208,35 +212,24 @@ public class PlayerController : MonoBehaviour
             var enemies = EnemySystem.Instance.GetEnemies();
             foreach (var enemy in enemies)
             {
-                if (enemy != null && TargetInReticle(enemy.transform))
+                if (enemy != null && UIController.Instance.TransformInReticle(enemy.transform))
                 {
                     // Establish lock on
                     currentLockTarget = enemy.transform;
+                    lockOn.InitializeLock();
                     break;
                 }
             }
         }
         else
         {
-            if (TargetInReticle(currentLockTarget))
+            // Break lock if target lost
+            if (!UIController.Instance.TransformInReticle(currentLockTarget))
             {
-                // Maintain lock
-            }
-            else
-            {
-                // Break lock
+                lockOn.DisableLock();
                 currentLockTarget = null;
             }
         }
-    }
-
-    bool TargetInReticle(Transform target)
-    {
-        if (UIController.Instance.TransformInReticle(target))
-        {
-            return true;
-        }
-        return false;
     }
 
 	public void SetDead()

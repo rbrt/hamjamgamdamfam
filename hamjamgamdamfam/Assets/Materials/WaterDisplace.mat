@@ -60,7 +60,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DisplacementScale: 10
-    - _DisplacementStrength: -0.32918862
+    - _DisplacementStrength: 0.39428493
     - _DstBlend: 0
     - _Frequency: 0.5
     - _GlossMapScale: 1
@@ -82,4 +82,4 @@ Material:
     m_Colors:
     - _Color: {r: 0.47843137, g: 0.8117647, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShipPosition: {r: 4.310908, g: 2.9052687, b: 45, a: 0}
+    - _ShipPosition: {r: 2.0324068, g: 0.9157164, b: 45, a: 0}
