@@ -184,6 +184,7 @@
     <Compile Include="Assets\Scripts\Weapons\DefaultLaser.cs" />
     <Compile Include="Assets\Scripts\Weapons\DefaultLaserProjectile.cs" />
     <Compile Include="Assets\Scripts\Weapons\LockOn.cs" />
+    <Compile Include="Assets\Scripts\Weapons\SeekerProjectile.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\WorldShit\TerrainData.cs" />
     <Compile Include="Assets\Scripts\WorldShit\TerrainInstance.cs" />

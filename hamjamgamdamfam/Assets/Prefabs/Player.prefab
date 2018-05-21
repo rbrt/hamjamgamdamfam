@@ -1179,6 +1179,7 @@ MonoBehaviour:
   reticleSecond: {fileID: 1048822567501920}
   reticleFinal: {fileID: 1856042625005490}
   lockColor: {r: 0, g: 1, b: 0.07469654, a: 1}
+  altLockColor: {r: 0, g: 0, b: 0, a: 0}
   lockTime: 1.5
 --- !u!114 &114258810368990476
 MonoBehaviour:
@@ -1257,6 +1258,8 @@ MonoBehaviour:
   viewCamera: {fileID: 20194335320042536}
   lockOn: {fileID: 114027312537990074}
   visualizationCube: {fileID: 4703849906112208}
+  seekerProjectile: {fileID: 114158458436214714, guid: d68cb3e7f53bf0148bc3eff7b39dd6a0,
+    type: 2}
   screenYRange: {x: 0.25, y: 2.96}
   screenXRange: {x: -2.81, y: 4.49}
   playerXRange: {x: -5, y: 5}

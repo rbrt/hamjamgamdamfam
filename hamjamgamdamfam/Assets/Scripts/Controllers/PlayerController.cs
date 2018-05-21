@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] protected Transform visualizationCube;
 
+    [SerializeField] protected SeekerProjectile seekerProjectile;
+
 	ControllerInterface controller;
 	public static string ControllerTypeKey = "ControllerType";
 
@@ -180,6 +182,12 @@ public class PlayerController : MonoBehaviour
 
         if (controller.GetSecondaryFireButtonUp())
         {
+            if (lockOn.HasFullLock())
+            {
+                var seeker = Instantiate(seekerProjectile, playerShipMesh.transform.position, Quaternion.identity).GetComponent<SeekerProjectile>();
+                seeker.SetTarget(currentLockTarget);
+            }
+
             currentLockTarget = null;
             lockOn.DisableLock();
             secondaryFiring = false;
@@ -199,6 +207,11 @@ public class PlayerController : MonoBehaviour
 	{
 		activeWeapon.Fire();
 	}
+
+    void LaunchRocket()
+    {
+
+    }
 
 	void HandleReticle()
 	{
